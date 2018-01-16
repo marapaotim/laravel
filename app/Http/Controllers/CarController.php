@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
+
+use Datatables; 
 
 use DB;
 use App\Quotation;
@@ -15,19 +17,27 @@ class CarController extends Controller
        return view('cars', ['cars' => $cars]);
     }
     public function displayCar(){
-    	$cars = DB::select('SELECT * FROM blog.cars;'); 
-        return response()->json($cars);
+    	//$cars = DB::select('SELECT * FROM blog.cars;');
+    	if(request()->ajax()){ 
+    		try{
+        		return Datatables::queryBuilder(DB::table('blog.cars'))->make(true);
+        	}catch(Exception $e)
+	    	{
+	    		return response()->json(['status'=>$e->getMessage()."\n"]); 
+			} 
+    	}
     } 
-    public function insertCar(Request $request){ 
+    public function insertCar(Request $request){   
 	    if(request()->ajax()){
 	    	try{
 		    	$makecar = $request->input('make');
 		    	$model = $request->input('model');
+		    	$produced = $request->input('produced');
 		    	DB::table('blog.cars')->insert([
 				    [
 				    	'make' => $makecar,
 				    	'model' => $model,
-				    	'produced_on' => date('Y-m-d H:i:s'),
+				    	'produced_on' => $produced,
 				    	'created_at' => date('Y-m-d H:i:s'),
 				    	'updated_at' => date('Y-m-d H:i:s'),
 					] 
@@ -46,12 +56,15 @@ class CarController extends Controller
     			$id = $request->input('id');
     			$makecar = $request->input('make');
 		    	$model = $request->input('model');
+		    	$produced = $request->input('produced');
 		    	DB::table('blog.cars')
 			            ->where('id', $id)
 			            ->update(
 			            	[
 			            		'make' => $makecar,
-			            		'model' => $model
+			            		'model' => $model,
+			            		'produced_on' => $produced,
+			            		'updated_at' => date('Y-m-d H:i:s')
 			            	]);
 			    return response()->json(['status'=>'Successfully Updated']); 
     		}catch(Exception $e)
@@ -73,26 +86,18 @@ class CarController extends Controller
 		}  
     } 
 
-    public function xmltohtml(){
-    	if(file_exists('file.xml'))
-		{
-			$xml = simplexml_load_file('file.xml');
-			$result = $xml->xpath('/Response/Rates/Service');
-
-			$options = [];
-			while(list( , $node) = each($result)) {
-				$name = (String)$node->Name[0];
-				$total = (String)$node->Total[0];
-				$options[] = "<option value='" . $name . ", " .  $total . "'>+ " . $name . " - " . $total . "</option>"; 
-			}
-			$options = implode("", $options);
-
-			echo "<select name='shipping_name'>" . $options . "</select>";
-
+    public function xmltohtml(){ 
+		$xmlfile = file_get_contents("note.xml");
+		$ob= simplexml_load_string($xmlfile);
+		$json  = json_encode($ob);
+		$configData = json_decode($json, true);
+		foreach ($configData as $key => $value) {
+			echo "<".$key.">";
+			 foreach ($value as $key2 => $value2) {
+			  	echo  $value2["author"];
+			  } 
+			echo "</".$key.">";
 		}
-		else
-		{
-			exit('Failed to open file.');
-		}
+		print_r("<pre>");print_r($configData);print_r("</pre>"); 
     } 
 }

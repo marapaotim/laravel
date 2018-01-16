@@ -25,3 +25,5 @@ Route::post('create', 'CarController@insertCar');
 Route::post('update', 'CarController@updateCar');
 
 Route::post('delete', 'CarController@deleteCar');
+
+Route::get('/xml', 'CarController@xmltohtml');
