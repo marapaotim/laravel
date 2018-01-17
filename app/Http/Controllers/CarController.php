@@ -86,18 +86,54 @@ class CarController extends Controller
 		}  
     } 
 
-    public function xmltohtml(){ 
-		$xmlfile = file_get_contents("note.xml");
-		$ob= simplexml_load_string($xmlfile);
-		$json  = json_encode($ob);
-		$configData = json_decode($json, true);
-		foreach ($configData as $key => $value) {
-			echo "<".$key.">";
-			 foreach ($value as $key2 => $value2) {
-			  	echo  $value2["author"];
-			  } 
-			echo "</".$key.">";
-		}
-		print_r("<pre>");print_r($configData);print_r("</pre>"); 
+    public function xmltohtml(){
+    	try {
+	    	$xmlData = array();   
+		    $xmlTags = array();
+		    $xmlTags['title'] = '<h1>';
+		    $xmlTags['artist'] = '<i>';
+		    $xmlTags['date'] = '<h3>';
+		    $xmlTags['medium'] = '<h4>';
+		    $xmlTags['movement'] = '<p>';
+		    $xmlTag['more_info'] = '<p>';
+			$xmlfile = file_get_contents("note.xml");
+			$ob= simplexml_load_string($xmlfile);
+			$json  = json_encode($ob);
+			$configData = json_decode($json, true);
+
+			foreach ($configData as $key => $value) {
+				//foreach (array_keys($value) as $key2 => $value2) {
+					$xmlData[] = array(
+						'parent' => $key,
+						'data'	=>  $value
+					);
+				//}
+			}
+			// foreach ($configData as $key => $value) {
+			// 	$xmlArray[] = array(
+			// 		'firstparent' => $value
+			// 	);
+			// 	//echo "<".$key.">";
+			// 	 foreach ($value as $key2 => $value2) {
+			// 	 	// foreach (array_keys($value2) as $key3 => $value3) {
+			// 	 	// 	$xmlArray2[] = array(
+			// 			// 	'secondparent' => $value3
+			// 			// );
+			// 	 	// 	//$xmlArray['firstparent'][] = $value3;
+			// 	 	// 	//echo "<".$value3.">".$value2['author']."</".$value3.">";
+			// 	 	// } 
+			// 	  } 
+			// 	//echo "</".$key.">";
+			// }
+			print_r("<pre>");print_r($xmlData);print_r("</pre>"); 
+			foreach ($xmlData as $key => $value){ 
+				$xmltagging = $value['parent'];
+				echo $xmlTags[$value['parent']];
+				//echo $value['parent'].'<br>'.$value['data'];
+			} 
+    		
+    	} catch (Exception $e) {
+    		
+    	}
     } 
 }
