@@ -35,9 +35,16 @@
 			</div>
 		</div>
 	</div>
-      <div class="container1">
-        <p class="text-muted text-left">Laravel Framework</p> 
+	<div class="container-fluid">
+		<div class="row">
+	      <div class="col-md-6">
+	        <p class="text-muted text-left">Laravel Framework</p> 
+	      </div>
+	      <div class="col-md-6">
+	        <p class="text-muted text-right">IGen Technologies</p> 
+	      </div>
       </div>
+    </div>
  </footer>
 </body>
 </html>
