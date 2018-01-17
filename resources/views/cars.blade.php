@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<meta name="csrf-token" content="{{ csrf_token() }}" />
-	<link rel="stylesheet" href="{{asset('css/app.css')}}"> 
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
-	<script src="/js/postsAjax.js"></script>
-
-	<!-- DataTables Library -->
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
-	<!-- DataTables Library -->
-
-	<!-- DateTime Picker Library -->
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-	<!-- DateTime Picker Library -->
-</head>
-<body> 
+@include('header')
 <div class="container">    
-<h1>AJAX CRUD FORM</h1>  
+<div class="page-title">
+	<h3>Home Page</h3>
+</div> 
 <div class="row">
  	<div class="col-md-3">
 		<form id="form-car" method = "post">
@@ -72,6 +54,6 @@
  		
  	</div> 
   </div> 
-</div> 
-</body>
-</html>
+</div>  
+  <script src="/js/postsAjax.js"></script>
+@include('footer')

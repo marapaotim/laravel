@@ -12,6 +12,7 @@ $(document).ready(function(e) {
             format: 'yyyy-mm-dd', 
             todayHighlight: true,
             autoclose: true,
+            orientation: "top",
         }) 
 
     $("#form-car").submit(function(e) {

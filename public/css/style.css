@@ -1,0 +1,104 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body { 
+  margin-bottom: 350px; 
+	padding-top: 120px;
+}
+.footer {
+      position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #3097D1;
+    color: #fff;
+}
+.footer .footer-padd{ 
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.text-muted{
+	color:#fff !important;
+}
+.container1 {
+      width: auto;
+    padding: 0px 0px 0px 15px;
+    border-top: 1px solid #fff;
+}
+.container1 .text-muted {
+  margin: 10px 0;
+}
+.navbar-custom {
+    color: #fff;
+    background-color: #3097D1;
+    border-color: #2a88bd;
+    border-radius:0;
+}
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+} 
+.navbar-custom .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus,
+.navbar-custom .navbar-nav > .open >a {
+    text-decoration: none;
+    background-color: #fff;
+    color:#000;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+} 
+.navbar-custom .navbar-toggle {
+    background-color:#3097D1;
+}
+.navbar-custom .navbar-toggle:hover {
+    background-color:#3097D1;
+}
+.navbar-custom .icon-bar {
+    background-color:#33aa33;
+}
+.navbar-custom .navbar-nav .dropdown-menu  { 
+  background-color: #3097D1;
+}
+.navbar-custom .navbar-nav .dropdown-menu>li>a  { 
+  color: #fff;
+}
+.navbar-custom .navbar-nav .dropdown-menu>li>a:hover,.navbar-custom .navbar-nav .dropdown-menu>li>a:focus  { 
+  color: #000;
+}
+
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+.sub-container{
+	 margin:10px 0px 10px 0px;
+}
+.bottom-border{
+	  border-bottom: 2px solid #fff; 
+}
+.page-title{
+  color:#3097D1;
+  text-transform:uppercase;
+  border-bottom:1px solid #3097D1;
+  margin-bottom: 30px;
+}
+
+.account-wall { 
+    padding: 40px 20px 20px 20px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}

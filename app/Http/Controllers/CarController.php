@@ -90,12 +90,12 @@ class CarController extends Controller
     	try {
 	    	$xmlData = array();   
 		    $xmlTags = array();
-		    $xmlTags['title'] = '<h1>';
-		    $xmlTags['artist'] = '<i>';
-		    $xmlTags['date'] = '<h3>';
-		    $xmlTags['medium'] = '<h4>';
-		    $xmlTags['movement'] = '<p>';
-		    $xmlTag['more_info'] = '<p>';
+		    $xmlTags['title'] = 'h1>';
+		    $xmlTags['artist'] = 'i>';
+		    $xmlTags['date'] = 'h3>';
+		    $xmlTags['medium'] = 'h4>';
+		    $xmlTags['movement'] = 'p>';
+		    $xmlTag['more_info'] = 'b>';
 			$xmlfile = file_get_contents("note.xml");
 			$ob= simplexml_load_string($xmlfile);
 			$json  = json_encode($ob);
@@ -127,8 +127,8 @@ class CarController extends Controller
 			// }
 			print_r("<pre>");print_r($xmlData);print_r("</pre>"); 
 			foreach ($xmlData as $key => $value){ 
-				$xmltagging = $value['parent'];
-				echo $xmlTags[$value['parent']];
+				$xmltagging = isset($xmlTags[$value['parent']]) ? $value['parent'] : ' No data ';
+				echo $xmltagging;
 				//echo $value['parent'].'<br>'.$value['data'];
 			} 
     		
