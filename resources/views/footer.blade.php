@@ -1,50 +1,32 @@
-<footer class="footer">
-	<div class="container-fluid footer-padd">
-		<div class="row">
-			<div class="col-md-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-			<div class="col-md-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-			<div class="col-md-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-			<div class="col-md-3">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid">
-		<div class="row">
-	      <div class="col-md-6">
-	        <p class="text-muted text-left">Laravel Framework</p> 
-	      </div>
-	      <div class="col-md-6">
-	        <p class="text-muted text-right">IGen Technologies</p> 
-	      </div>
-      </div>
-    </div>
- </footer>
+</div>  
+ <footer class="navbar-bottom"> 
+ 	<div class="navbar footer-menu"> 
+	 	<ul class="nav navbar-nav">
+	 		<li><a href="/index">Home</a></li>
+	 		<li><a href="/about">About Us</a></li>
+	 		<li><a href="#">BLOG</a></li> 
+	 		<li><a href="#">Contact Us</a></li>
+	 	</ul> 
+ 	</div> 
+ 	<div class="container-fluid footer-menu">
+ 		<div class="row">
+ 			<div class="col-md-12 text-center">
+ 				<p> <h1>IGenDev Technologies</h1> Laravel Framework</p> 
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<div class="container-fluid last-footer">
+ 		<div class="row">
+ 			<div class="col-md-12 text-center"> 
+ 				<h2>Visit Us</h2>
+ 				<ul class="list-inline">
+ 					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+ 					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> </a> </li>
+ 					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> </a>  </li>
+ 				</ul> 
+ 			</div>
+ 		</div>
+ 	</div>
+ </footer>   
 </body>
 </html>

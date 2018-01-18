@@ -7,7 +7,7 @@ $.ajaxSetup({
 });
 $(document).ready(function(e) {  
     displayCar();
-
+    asd();
     $('#produced_on').datepicker({
             format: 'yyyy-mm-dd', 
             todayHighlight: true,
@@ -57,6 +57,12 @@ $(document).ready(function(e) {
             alert(result.status);
             displayCar();
         });
+    }
+
+    function asd(){
+     var str = "How are you doing today?";
+    var res = str.split(" ");
+    console.log(res[0]);
     }
 
 

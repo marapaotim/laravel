@@ -38,3 +38,10 @@ Route::get('helloworld', 'loginController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/index', 'IndexController@index')->name('index');
+
+Route::get('/about', 'AboutController@index')->name('about');
+
+Route::get('/editor', 'EditorController@index')->name('editor');
+ 

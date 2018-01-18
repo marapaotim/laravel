@@ -11,6 +11,10 @@ use App\Quotation;
 
 class CarController extends Controller
 {
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
    public function show()
     {
        $cars = DB::select('SELECT * FROM blog.cars;'); 
@@ -99,8 +103,7 @@ class CarController extends Controller
 			$xmlfile = file_get_contents("note.xml");
 			$ob= simplexml_load_string($xmlfile);
 			$json  = json_encode($ob);
-			$configData = json_decode($json, true);
-
+			$configData = json_decode($json, true); 
 			foreach ($configData as $key => $value) {
 				//foreach (array_keys($value) as $key2 => $value2) {
 					$xmlData[] = array(

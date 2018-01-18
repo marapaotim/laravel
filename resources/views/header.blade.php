@@ -9,6 +9,13 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- BxSlider --> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <!-- BxSlider --> 
+
+
   <!-- DataTables Library -->
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
@@ -50,9 +57,10 @@
     </div> 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="/test">Home</a></li> 
-          <li><a href="#">About Us</a></li> 
-          <li><a href="#">BLOG</a></li> 
+          <li><a href="/index">Home</a></li> 
+          <li><a href="/about">About Us</a></li> 
+          <li><a href="#">BLOG</a></li>
+          <li><a href="#">Contact Us</a></li> 
         </ul> 
         @if (Route::has('login'))
           <ul class="nav navbar-nav navbar-right">  
@@ -77,3 +85,4 @@
     </div>
   </div>
 </nav>
+ <div class="wrapper"> 
