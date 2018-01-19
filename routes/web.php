@@ -44,4 +44,8 @@ Route::get('/index', 'IndexController@index')->name('index');
 Route::get('/about', 'AboutController@index')->name('about');
 
 Route::get('/editor', 'EditorController@index')->name('editor');
+
+Route::get('xmlfiles', 'EditorController@getXMLfile');
+
+Route::get('xmlcontent', 'EditorController@get_content_xml_file');
  

@@ -11,9 +11,24 @@ class EditorController extends Controller
     }
 
     public function getXMLfile(){
-    	$path = "note.xml";
-		$file = basename($path);         // $file is set to "index.php"
-		$file = basename($path, ".xml");
-		return  $file.".xml";
+    	if(request()->ajax()){
+	    	$files_array = array( 
+	    		"note.xml",
+	    		"globalStyles.xml",
+	    		"Index.xml",
+	    	);
+	    	$files_array2 = array();
+	    	foreach ($files_array as $key => $value) {
+	    		$files_array2[] = array(
+	    			'file' => $value,
+	    		);
+	    	}
+			return response()->json($files_array2);
+		}
+    }
+
+    public function get_content_xml_file(Request $request){
+    	$xmlfile = file_get_contents($request->input('path'));  
+    	return response()->json($xmlfile);
     }
 }

@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <!-- DateTime Picker Library --> 
 
+  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/lib/codemirror.css')}}">
+
 </head>
 <body> 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
@@ -53,7 +55,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="?action=main">Guestbook Project</a>
+      <a class="navbar-brand" href="?action=main">IGenDev Technologies</a>
     </div> 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
