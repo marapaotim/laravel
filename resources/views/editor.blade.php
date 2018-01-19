@@ -25,10 +25,37 @@
 				</form>
 			</div>
 		</div>
+
 </div> 
+
+ <div id="tvteditor"></div>
+
+
+
+<!-- Code Mirror -->
+
 <script type="text/javascript" src="/js/editorAjax.js"></script>
-<script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
-<script type="text/javascript" src="codemirror/selection/active-line.js"></script>
-<script type="text/javascript" src="codemirror/xml/xml.js"></script>
+<script type="text/javascript" src="/codemirror/lib/codemirror.js"></script>
+<script type="text/javascript" src="/codemirror/selection/active-line.js"></script>
+<script type="text/javascript" src="/codemirror/xml/xml.js"></script>
+
+
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/css/css.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/php/php.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/ruby/ruby.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/python/python.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/vb/vb.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/dialog/dialog.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/search/searchcursor.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/search/search.min.js"></script>
+
+<script src="/TVTeditor/src/js/jquery.enhsplitter.js"></script>
+
+<script src="/TVTeditor/src/js/tvteditor.js"></script> -->
  
 @include('footer')

@@ -5,7 +5,7 @@ $.ajaxSetup({
 });
 var editor = '';
 $(document).ready(function(e) {  
-
+tvt_editor();
 displayFiles();  
 	function displayFiles(){
 		$.ajax({
@@ -30,6 +30,19 @@ displayFiles();
 	  lineNumbers: true,
 	  lineWrapping: true
 	});
+
+
+	function tvt_editor(){
+		$.ajax({
+	            dataType: 'json',
+	            type:'GET',
+	            url: 'tveditor', 
+	            _token: '{{ csrf_token() }}'
+	        }).done(function(result){ 
+	        	console.log(result);
+	    	}); 
+
+	} 
 
 });
 

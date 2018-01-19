@@ -29,6 +29,15 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('codemirror/lib/codemirror.css')}}">
 
+  <!-- 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/dialog/dialog.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/theme/icecoder.min.css">
+
+
+<link rel="stylesheet" type="text/css" href="/tvteditor/src/css/jquery.enhsplitter.css"> 
+<link type="text/css" rel="stylesheet" href="/tvteditor/src/css/tvteditor.css" /> -->
+
 </head>
 <body> 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">

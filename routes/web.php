@@ -48,4 +48,6 @@ Route::get('/editor', 'EditorController@index')->name('editor');
 Route::get('xmlfiles', 'EditorController@getXMLfile');
 
 Route::get('xmlcontent', 'EditorController@get_content_xml_file');
+
+Route::get('tveditor', 'EditorController@tvt_editor');
  
