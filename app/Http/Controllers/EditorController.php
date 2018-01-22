@@ -1,7 +1,7 @@
 <?php 
 namespace App\Http\Controllers;
 use App\includes\TVTeditor;
-
+use App\includes\Editor;
 use Illuminate\Http\Request;
 
 //include(app_path().'includes/TVTeditor.php');
@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class EditorController extends Controller
 {   
+	private $editor; 
 	public function index()
     {
     	//$this->dir = './';
@@ -40,23 +41,26 @@ class EditorController extends Controller
     	}
     }
 
-    public function tvt_editor(Request $request){ 
-    	$dir = "./";  
-    	$scanned_directory = scandir($dir);
-    	$array_files = array(); 
-	    	foreach ($scanned_directory as $key => $value) { 
-		    	if (!in_array($value,array(".",".."))) 
-		      	{  
-		    		if (is_dir($dir . DIRECTORY_SEPARATOR .$value))
-		    		{  
-		    			 $array_files[$value] =  array_diff(scandir($dir . DIRECTORY_SEPARATOR .$value), array('.', '..'));  
-		    		} 
-		    		else
-		    		{
-		    			$array_files[] = $value;
-		    		}
-	    	} 
-    	}
-		return response()->json($array_files); 
+    public function tvt_editor($dir = './', $results = array()){
+	    $results = $this->ed($dir, $results); 
+		return response()->json($results); 
+    }
+
+    function ed($dir = './', $results = array()){
+    	$files = scandir($dir);
+
+	    foreach($files as $key => $value){
+	        $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
+	        $name = explode("\\", $path);
+	        if(!is_dir($path)) {
+	            $results[] =  array('name' => last($name), 'path'	=> $path);  
+	        } else if($value != "." && $value != "..") {
+	        	//$rret = $results[last($name)];
+	            $results[last($name)] = array();
+	            $results[last($name)] =  $this->ed($path, $results[last($name)]); 
+	        }
+	    }   
+
+	    return $results;
     }
 }

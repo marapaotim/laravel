@@ -131,7 +131,7 @@ hr.blue-line{
 }
 .option-list-2{
   background: #DCDCDC;
-      padding: 10px 0px 0px 10px;
+      padding: 10px 0px 0px 0px;
       margin-top: 50px;
 }
 .option-list li.check{
@@ -142,6 +142,12 @@ hr.blue-line{
 }
 .option-list-2 li.check{
     background: url(/images/contract.png) no-repeat left top;
+    height: 30px;
+    padding-left: 30px;
+    margin-bottom: 3px;
+}
+.option-list-2 li.folder{
+    background: url(/images/folder.png) no-repeat left top;
     height: 30px;
     padding-left: 30px;
     margin-bottom: 3px;
@@ -213,4 +219,10 @@ footer .navbar{
 }
 .last-footer a:hover{
   color:#000;
+}
+.CodeMirror{
+      height: 700px !important;
+}
+.option-list-2 li ul{
+  display: none;
 }

@@ -27,8 +27,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <!-- DateTime Picker Library --> 
 
-  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/lib/codemirror.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/lib/codemirror.css')}}"> 
 
+  <!-- <link rel="stylesheet" type="text/css" href="{{asset('treeview/easyTree.css')}}"> 
+  <script type="text/javascript" src="{{asset('treeview/easyTree.js')}}"></script> -->
   <!-- 
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/addon/dialog/dialog.min.css">
