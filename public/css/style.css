@@ -33,8 +33,8 @@ body {
 }
 .navbar-custom {
     color: #fff;
-    background-color: #3097D1;
-    border-color: #2a88bd;
+    background-color: #0a001f;
+    border-color: #0a001f;
     border-radius:0;
 }
 .navbar-custom .navbar-nav > li > a {
@@ -58,16 +58,16 @@ body {
     color:#eeeeee;
 } 
 .navbar-custom .navbar-toggle {
-    background-color:#3097D1;
+    background-color:#0a001f;
 }
 .navbar-custom .navbar-toggle:hover {
-    background-color:#3097D1;
+    background-color:#0a001f;
 }
 .navbar-custom .icon-bar {
     background-color:#33aa33;
 }
 .navbar-custom .navbar-nav .dropdown-menu  { 
-  background-color: #3097D1;
+  background-color: #0a001f;
 }
 .navbar-custom .navbar-nav .dropdown-menu>li>a  { 
   color: #fff;
@@ -92,9 +92,9 @@ body {
 	  border-bottom: 1px solid #fff; 
 }
 .page-title{
-  color:#3097D1;
+  color:#0a001f;
   text-transform:uppercase;
-  border-bottom:1px solid #3097D1;
+  border-bottom:1px solid #0a001f;
   margin-bottom: 30px;
 } 
 .header-home img{
@@ -102,7 +102,7 @@ body {
   width:100% 
 }
 hr.blue-line{
-   background-color: #3097D1; 
+   background-color: #0a001f; 
    height: 2px; 
    border: 0; 
 } 
@@ -121,7 +121,7 @@ hr.blue-line{
 }
 .home-title{
   font-size:30px;
-  color:#3097D1;
+  color:#0a001f;
   font-weight: bold;
   text-align: center;
 }
@@ -130,9 +130,12 @@ hr.blue-line{
       padding: 10px 0px 0px 10px;
 }
 .option-list-2{
-  background: #DCDCDC;
-      padding: 10px 0px 0px 0px;
-      margin-top: 50px;
+  background: #0a001f;
+  padding: 10px 0px 0px 0px;
+   /* margin-top: 50px;*/
+    height: 540px;
+    overflow: scroll;
+    color:#fff;
 }
 .option-list li.check{
     background: url(/images/next2.png) no-repeat left top;
@@ -142,13 +145,13 @@ hr.blue-line{
 }
 .option-list-2 li.check{
     background: url(/images/contract.png) no-repeat left top;
-    height: 30px;
+    /*height: 30px;*/
     padding-left: 30px;
     margin-bottom: 3px;
 }
 .option-list-2 li.folder{
     background: url(/images/folder.png) no-repeat left top;
-    height: 30px;
+    /*height: 30px;*/
     padding-left: 30px;
     margin-bottom: 3px;
 }
@@ -183,7 +186,7 @@ hr.blue-line{
   background-color:#fff;
 }
 footer{
-  background-color: #3097D1;
+  background-color: #0a001f;
   color:#fff;
   margin-top: 10px;
 }
@@ -204,7 +207,7 @@ footer .navbar{
   width:100% 
 }
 .president{
-      border-bottom: 1px solid #3097D1;
+      border-bottom: 1px solid #0a001f;
       margin-bottom: 20px;
       padding-bottom: 30px;
 }
@@ -218,11 +221,14 @@ footer .navbar{
   color:#fff ;
 }
 .last-footer a:hover{
-  color:#000;
+  color:blue;
 }
 .CodeMirror{
-      height: 700px !important;
+      height: 500px !important;
 }
 .option-list-2 li ul{
-  display: none;
+  /*display: none;*/
+}
+.navbar-fixed-top{
+        border-width: 1px 1px 1px !important;
 }

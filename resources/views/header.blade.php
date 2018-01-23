@@ -27,7 +27,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
   <!-- DateTime Picker Library --> 
 
-  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/lib/codemirror.css')}}"> 
+  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/lib/codemirror.css')}}">
+
+  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/theme/night.css')}}"> 
+
+  <link rel="stylesheet" type="text/css" href="{{asset('codemirror/display/fullscreen.css')}}">  
 
   <!-- <link rel="stylesheet" type="text/css" href="{{asset('treeview/easyTree.css')}}"> 
   <script type="text/javascript" src="{{asset('treeview/easyTree.js')}}"></script> -->
@@ -66,14 +70,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="?action=main">IGenDev Technologies</a>
+      <a class="navbar-brand" href="/index">IGenDev Technologies</a>
     </div> 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
           <li><a href="/index">Home</a></li> 
           <li><a href="/about">About Us</a></li> 
           <li><a href="#">BLOG</a></li>
-          <li><a href="#">Contact Us</a></li> 
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="/editor">Editor</a></li> 
         </ul> 
         @if (Route::has('login'))
           <ul class="nav navbar-nav navbar-right">  

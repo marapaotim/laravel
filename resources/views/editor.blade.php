@@ -1,10 +1,18 @@
-@include('header') 
+@include('header')
+<div class="container-fluid header-other">
+	<div class="row">
+			<div><img src="{{asset('images/code.jpg')}}" title="Coding" class="img-responsive"/></div>
+	</div>
+</div> 
 <div class="container">
 		<div class="row">
 			<div class="page-title">
 				<h3>Editor Page</h3>
 			</div> 
-			<div class="col-md-2 option-list-2">  
+			<div class="col-md-3 option-list-2"> 
+			
+			<div class="files-lists">
+			</div> 
 					<!--<li class="check"><a href="note.xml">Files 1</a></li>
 					<li class="check"><a href="#">Files 2</a></li>
 					<li class="check"><a href="#">Files 3</a></li>
@@ -13,30 +21,18 @@
 					<li class="check"><a href="#">Files 6</a></li>
 					<li class="check"><a href="#">Files 7</a></li> 	-->	 
 			</div>
-			<div class="col-md-10">
-				<form>
+			<div class="col-md-9">
+				<form id="texteditor">
 					<div class="form-group">
-						<label for="pwd">Editor:</label>
+						<label for="label-file" class="label-file">Editor:</label>
 						<textarea id="xmlcontent" class="form-control"></textarea>
 					</div>
-					<button class="btn btn-primary">Save</button>
+					<button class="btn btn-primary" id="save_files" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Processing Order">Save</button> <img src="{{asset('images/loading.gif')}}">
 				</form>
 			</div>
 		</div>
 
-</div> 
-
-<div class="col-md-2 option-list-3">
-				<ul class="list-group list-unstyled">
-					<!--<li class="check"><a href="note.xml">Files 1</a></li>
-					<li class="check"><a href="#">Files 2</a></li>
-					<li class="check"><a href="#">Files 3</a></li>
-					<li class="check"><a href="#">Files 4</a></li>
-					<li class="check"><a href="#">Files 5</a></li>
-					<li class="check"><a href="#">Files 6</a></li>
-					<li class="check"><a href="#">Files 7</a></li> 	-->			
-				</ul>
-</div>
+</div>  
 
 
 
@@ -46,6 +42,11 @@
 <script type="text/javascript" src="/codemirror/lib/codemirror.js"></script>
 <script type="text/javascript" src="/codemirror/selection/active-line.js"></script>
 <script type="text/javascript" src="/codemirror/xml/xml.js"></script> 
+<script type="text/javascript" src="/codemirror/mode/css/css.js"></script> 
+<script type="text/javascript" src="/codemirror/edit/closebrackets.js"></script> 
+<script type="text/javascript" src="/codemirror/edit/closetag.js"></script>
+<script type="text/javascript" src="/codemirror/display/fullscreen.js"></script>
+<script type="text/javascript" src="/codemirror/keymap/sublime.js"></script>
 
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/xml/xml.min.js"></script>
