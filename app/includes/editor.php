@@ -20,4 +20,7 @@ class Editor
     	// }
 		return $scandirectory; 
 	}
+	public function asd(){
+		return 'Heasdasd';
+	}
 }

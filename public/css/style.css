@@ -232,3 +232,38 @@ footer .navbar{
 .navbar-fixed-top{
         border-width: 1px 1px 1px !important;
 }
+
+
+/* Editor Tabs */
+      .nav-tabs > li .close {
+          margin: -2px 0 0 10px;
+          font-size: 18px;
+      }
+      .marginBottom {
+          margin-bottom :1px !important;
+      }
+      .operationDiv {
+          padding:5px 10px 5px 5px;
+      }
+      .operationDivWrapper {
+          margin-top:-1px;
+      }
+      .leftMenu {
+          height :70%;
+          background-color: #E6E6E6;
+          border-right: 2px solid #BFBFBF;
+      }
+
+#texteditor .nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    color:white;
+    background-color: #0a001f;
+}
+.option-list-2 ul.list-inline{
+    text-align: center;
+    display: block;
+}
+.option-list-2 input#uploadFile{
+  display: none;
+}
+      

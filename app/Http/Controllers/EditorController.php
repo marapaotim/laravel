@@ -1,7 +1,7 @@
 <?php 
 namespace App\Http\Controllers;
 use App\includes\TVTeditor;
-use App\includes\Editor;
+use App\Includes\Editor;
 use Illuminate\Http\Request;
 
 //include(app_path().'includes/TVTeditor.php');
@@ -48,7 +48,7 @@ class EditorController extends Controller
 
     function ed($dir = './', $results = array()){
     	$files = scandir($dir);
-
+    	$HELLO = new Editor();
 	    foreach($files as $key => $value){
 	        $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
 	        $name = explode("\\", $path);
@@ -59,23 +59,11 @@ class EditorController extends Controller
 	        		case 'jpg':
 	        		case 'gif':
 	        		case 'ico':
-	        		case 'bmp':
-	        		case 'ppm': 
-	        		case 'jpeg': 
-	        		case 'pmb':
-	        		case 'pgm':
-	        		case 'pbm':
-	        		case 'pnm':
-	        		case 'tiff':
-	        		case 'exif':
-	        		case 'svg':
-	        		case 'eot':
-	        		case 'woff':
-	        		case 'woff2':
-	        		case 'ttf':
+	        		case 'bmp': 
+	        		case 'jpeg':  
 	        		break;
 	        		default:
-	            	$results[] =  array('name' => last($name), 'path'	=> $path);  
+	            	$results[] =  array('name' => last($name), 'path'	=> $path, 'asdsad' => $HELLO->asd());  
 	        		break;
 	        	}
 	        } else if($value != "." && $value != "..") {
@@ -89,7 +77,23 @@ class EditorController extends Controller
     }
 
     public function save_content_file(Request $request){
-    	file_put_contents($request->input('path'), $request->input('content'));
-    	return response()->json(['status'=>$request->input('path')]);
+    		//$this->fwrite_stream($request->input('path'), $request->input('content'));
+    	    $file   = fopen($request->input('path'), "w"); 
+		    $pieces = str_split($request->input('content'), 1024 * 4);
+		    foreach ($pieces as $piece) {
+		        fwrite($file, $piece, strlen($piece));
+		    } 
+		    fclose($file); 
+    		return response()->json(['status'=>'Successfully Saved']);
     }
+
+ //    function fwrite_stream($fp, $string) {
+	//     for ($written = 0; $written < strlen($string); $written += $fwrite) {
+	//         $fwrite = fwrite($fp, substr($string, $written));
+	//         if ($fwrite === false) {
+	//             return $written;
+	//         }
+	//     }
+	//     return $written;
+	// }
 }

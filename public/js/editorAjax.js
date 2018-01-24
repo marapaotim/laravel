@@ -5,6 +5,7 @@ $.ajaxSetup({
 });
 var editor = '';
 var path = '';
+var currentTab;
 $(document).ready(function(e) {  
 		tvt_editor(); 
 		$('#texteditor img').hide(); 
@@ -41,12 +42,12 @@ $(document).ready(function(e) {
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){
 	        	rows = '';
-			 	rows = rows + '<div class="row">';
+			 	//rows = rows + '';
 			 	rows = rows + '<ul style="list-style-type:none">'; 
 			 	rows = rows + '<h2>Files</h2>';  
 	        		display_files(result); 
 	        	rows = rows + '</ul>'; 
-	        	rows = rows + '</div>'; 
+	        	//rows = rows + '</div>'; 
 	        	$('.option-list-2 div.files-lists').append(rows); 
 
 	        	$(".option-list-2 li ul").hide(); 
@@ -79,26 +80,102 @@ $(document).ready(function(e) {
 			$('#texteditor img').show();  
 		$.ajax({
 	            dataType: 'json',
-	            type:'GET',
-	            url: 'save_file',
+	            type:'POST',
+	            url: '/save_file',
 	            data:{
   	              	path: path, 
   	              	content: editor.getValue()
             	}, 
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){ 
-	         	alert(result.status); 
 	         	$("#save_files").removeAttr("disabled");  
 	         	$('#texteditor img').hide(); 
+	         	alert(result.status); 
 	    }); 
 	}
 
-});
 
+	$('#uploadFile').change( function(event) {
+		//alert('hello World');
+		var file_data = $('#uploadFile').prop('files')[0];   
+		console.log(file_data);
+  //   	 var tmppath = URL.createObjectURL(event.target.files[0]); 
+  //   	 var link = document.createElement("a");
+		// link.href = tmppath;
+		// link.download = "myFileName.png";
+		// link.click();
+    	// console.log(URL.createObjectURL(event.target.files[0])); 
+    	//console.log(tmppath); 
+    	// if (fileToUpload) {
+	    //     // create reader
+	    //     var reader = new FileReader();
+	    //     reader.readAsText(fileToUpload);
+	    //     reader.onload = function(e) {
+	    //         // browser completed reading file - display it
+    	// 		console.log(e.target.result); 
+	    //     };
+    	// }
+    	//$("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+	}); 
 
+}); 
 	
 function retrieveXML(data){ 
 	path = data.getAttribute("data-path"); 
+	//console.log(path);
+	var fileNameIndex = path.lastIndexOf("\\") + 1;
+	var filename = path.substr(fileNameIndex);
+	$('label.label-file').html(filename);
+	$.ajax({
+            dataType: 'json',
+            type:'GET',
+            url: 'xmlcontent',
+            data:{
+				path: path,
+			},
+            _token: '{{ csrf_token() }}'
+        }).done(function(result){ 
+        	var arrayTabs = new Array();
+        	var tabexist = true;
+        	editor.setValue(result);
+        	if($('#myTab li a').length == 0){
+        		$('#myTab').append('<li><a data-toggle="tab" href="'+ path +'" onclick="tabs_file(this); return false" data-path='+ path +'><button class="close closeTab" type="button" >×</button>'+filename+'</a></li>');   
+        	}
+   			else{
+   				$("#myTab li a").each(function( index ){
+   					if(filename == $(this).text().substring(1).toString())
+   					{
+   						tabexist = true; 
+   						return false;
+   					} 
+   					else{
+   						tabexist = false; 
+   					}
+   				})
+   			}
+   			if(tabexist == false)
+   			{
+   				$('#myTab').append('<li><a data-toggle="tab" href="'+ path +'" onclick="tabs_file(this); return false" data-path='+ path +'><button class="close closeTab" type="button" >×</button>'+filename+'</a></li>');  
+   			} 
+   			//if ( ) {
+			//}
+   //      	$( ".nav-tabs" ).each(function( index ) {
+   //      		console.log($(this + 'li a').text().substring(1).toString());
+   //      		if((filename == $(this).text().substring(1).toString()).length == 0 || (filename == $(this).text().substring(1).toString()) == false){
+        			
+   //      		}
+  	// 			// if(filename !== $(this).text().substring(1).toString()){
+  	// 			// 	console.log(filename);
+  	// 			// //	$('.nav-tabs').append('<li><a href="'+ path +'" onclick="tabs_file(this); return false" data-path='+ path +'><button class="close closeTab" type="button" >×</button>'+filename+'</a></li>');  
+  	// 			// } 
+			// });
+        	
+        	close_tab(); 
+        }); 
+}
+
+function tabs_file(data){
+	path = data.getAttribute("data-path");  
 	var fileNameIndex = path.lastIndexOf("\\") + 1;
 	var filename = path.substr(fileNameIndex);
 	$('label.label-file').html(filename);
@@ -114,3 +191,19 @@ function retrieveXML(data){
         	editor.setValue(result);  
         }); 
 }
+
+function close_tab(){
+	$(".closeTab").click(function () { 
+		//there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
+		var tabContentId = $(this).parent().attr("href");
+		$(this).parent().parent().remove(); //remove li of tab
+		//$('#myTab a:last').tab('show'); // Select first tab
+		$(tabContentId).remove(); //remove respective tab content 
+    });
+}
+
+$("#import").click(function(){
+    $('#uploadFile').trigger('click');
+});
+
+
