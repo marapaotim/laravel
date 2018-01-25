@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\includes\TVTeditor;
 use App\Includes\Editor;
 use Illuminate\Http\Request;
+use Zip;
 
 //include(app_path().'includes/TVTeditor.php');
 //header('Content-Type: application/json');
@@ -41,13 +42,14 @@ class EditorController extends Controller
     	}
     }
 
-    public function tvt_editor($dir = './', $results = array()){
-	    $results = $this->ed($dir, $results); 
+    public function tvt_editor(Request $request, $results = array()){
+	    $results = $this->ed($request->input('dir'), $results); 
 		return response()->json($results); 
     }
 
-    function ed($dir = './', $results = array()){
-    	$files = scandir($dir);
+    function ed($dir, $results = array()){
+    	if(!is_dir($dir)){ return false; }
+    	$files = scandir($dir); 
     	$HELLO = new Editor();
 	    foreach($files as $key => $value){
 	        $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
@@ -55,15 +57,15 @@ class EditorController extends Controller
 	        if(!is_dir($path)) {
 	        	$ext = pathinfo(last($name), PATHINFO_EXTENSION);
 	        	switch (strtolower($ext)) {
-	        		case 'png':
-	        		case 'jpg':
-	        		case 'gif':
-	        		case 'ico':
-	        		case 'bmp': 
-	        		case 'jpeg':  
+	        		case 'css':
+	        		case 'html':
+	        		case 'php':
+	        		case 'txt':
+	        		case 'xml': 
+	        		case 'js':  
+	            		$results[] =  array('name' => last($name), 'path'	=> $path, 'asdsad' => $HELLO->asd());
 	        		break;
-	        		default:
-	            	$results[] =  array('name' => last($name), 'path'	=> $path, 'asdsad' => $HELLO->asd());  
+	        		default: 
 	        		break;
 	        	}
 	        } else if($value != "." && $value != "..") {
@@ -85,6 +87,18 @@ class EditorController extends Controller
 		    } 
 		    fclose($file); 
     		return response()->json(['status'=>'Successfully Saved']);
+    }
+
+    public function get_files(Request $request){   
+		$base64string =  $request->input('files');
+		$filename_2 = preg_replace('/\s+/', '', $request->input('filename'));
+		file_put_contents('./import/'.$filename_2, base64_decode(explode(',',$base64string)[1])); 
+		$this->extract_zip_file('./import/'.$filename_2);
+    	return response()->json(['file'=>$request->input('files')]);
+    }
+    function extract_zip_file($linkZip){
+    	$zip = Zip::open($linkZip);
+    	$zip->extract('./extract/'); 
     }
 
  //    function fwrite_stream($fp, $string) {

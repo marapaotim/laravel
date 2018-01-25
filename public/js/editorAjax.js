@@ -7,7 +7,7 @@ var editor = '';
 var path = '';
 var currentTab;
 $(document).ready(function(e) {  
-		tvt_editor(); 
+		tvt_editor('./'); 
 		$('#texteditor img').hide(); 
 		$('#save_files').click(function(e) {  
 			e.preventDefault();  
@@ -34,27 +34,31 @@ $(document).ready(function(e) {
 
 
 	var rows = '';
-	function tvt_editor(){
+	function tvt_editor(dir){
+		$('#import').attr("disabled", "disabled");
 		$.ajax({
 	            dataType: 'json',
 	            type:'GET',
-	            url: 'tveditor', 
+	            url: 'tveditor',
+	            data:{
+	            	dir:dir
+	            },
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){
-	        	rows = '';
-			 	//rows = rows + '';
-			 	rows = rows + '<ul style="list-style-type:none">'; 
-			 	rows = rows + '<h2>Files</h2>';  
+	        	$('.option-list-2 div.files-lists').html(''); 
+	        	rows = ''; 
+			 	rows = rows + '<ul style="list-style-type:none">';  
 	        		display_files(result); 
-	        	rows = rows + '</ul>'; 
-	        	//rows = rows + '</div>'; 
+	        	rows = rows + '</ul>';   
 	        	$('.option-list-2 div.files-lists').append(rows); 
 
 	        	$(".option-list-2 li ul").hide(); 
 	        	$('.option-list-2 li a').click(function(e) {
 				  e.preventDefault();  
-				 $(this).closest("li").find("[class^='options']").toggle(); 
+				 $(this).closest("li").find("[class^='options']").toggle();
 				}); 
+				
+				 $("#import").removeAttr("disabled");  
 	    	});  
 	} 
 	function display_files(itemarray){  
@@ -69,7 +73,7 @@ $(document).ready(function(e) {
 	        }
 	        else
 	        {  
-	         	rows = rows + '<li><i class="fa fa-file-code-o fa-2x" aria-hidden="true"></i> <a href="#" onclick="retrieveXML(this); return false" data-path='+ item_second.path +'>' + item_second.name + '</a></li>';
+	         	rows = rows + '<li><i class="fa fa-file-code-o fa-2x" aria-hidden="true"></i> <a href="#" onclick="retrieveXML(this); return false" data-path='+ item_second.path.replace(/\s/g,'') +'>' + item_second.name + '</a></li>';
 	        } 
 	    }, "json")  
 	}
@@ -95,30 +99,41 @@ $(document).ready(function(e) {
 	}
 
 
+function getBase64(file) {
+   var reader = new FileReader();
+   reader.readAsDataURL(file);
+   reader.onload = function () {
+     ajaxFile(reader.result, file.name);
+   };
+   reader.onerror = function (error) {
+     console.log('Error: ', error);
+   };
+}
+function ajaxFile(files, filename){ 
+	$.ajax({
+	            dataType: 'json',
+	            type:'POST',
+	            url: 'files_data',
+	            data:{
+	            	files: files,
+	            	filename:filename
+	            },
+	            _token: '{{ csrf_token() }}'
+	        }).done(function(result){  
+	         	console.log(result); 
+	    }); 
+	var parts = filename.split(".");
+	var x = parts[0];
+	tvt_editor('./extract/' + x);
+}
+
 	$('#uploadFile').change( function(event) {
-		//alert('hello World');
-		var file_data = $('#uploadFile').prop('files')[0];   
-		console.log(file_data);
-  //   	 var tmppath = URL.createObjectURL(event.target.files[0]); 
-  //   	 var link = document.createElement("a");
-		// link.href = tmppath;
-		// link.download = "myFileName.png";
-		// link.click();
-    	// console.log(URL.createObjectURL(event.target.files[0])); 
-    	//console.log(tmppath); 
-    	// if (fileToUpload) {
-	    //     // create reader
-	    //     var reader = new FileReader();
-	    //     reader.readAsText(fileToUpload);
-	    //     reader.onload = function(e) {
-	    //         // browser completed reading file - display it
-    	// 		console.log(e.target.result); 
-	    //     };
-    	// }
-    	//$("#disp_tmp_path").html("Temporary Path(Copy it and try pasting it in browser address bar) --> <strong>["+tmppath+"]</strong>");
+		$('div.option-list-2 .file-name').html(event.target.files[0].name); 
+		getBase64(event.target.files[0]); 
 	}); 
 
 }); 
+
 	
 function retrieveXML(data){ 
 	path = data.getAttribute("data-path"); 

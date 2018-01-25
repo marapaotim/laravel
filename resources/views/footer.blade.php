@@ -2,7 +2,7 @@
  <footer class="navbar-bottom"> 
  	<div class="navbar footer-menu"> 
 	 	<ul class="nav navbar-nav">
-	 		<li><a href="/index">Home</a></li>
+	 		<li><a href="/index">Home </a></li>
 	 		<li><a href="/about">About Us</a></li>
 	 		<li><a href="#">BLOG</a></li> 
 	 		<li><a href="#">Contact Us</a></li>

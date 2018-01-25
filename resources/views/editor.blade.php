@@ -11,11 +11,14 @@
 			</div> 
 			<div class="col-md-3 option-list-2">  
 			<div class="row">
-			<ul class="list-inline">
-				<li><a href="#" id="import" class="btn btn-danger">Import</a>  
-				<input type="file" value="upload" id="uploadFile"/></li>
-				<li><a href="#" class="btn btn-primary">Export</a></li>
-			</ul>
+			<form>
+				<ul class="list-inline">
+					<li><a href="#" id="import" class="btn btn-danger">Import</a>  
+					<input type="file" value="upload" id="uploadFile"/></li>
+					<li><a href="#" class="btn btn-primary">Export</a></li>
+				</ul> 
+			</form> 
+				<div class="text-center file-name"></div>
 			<div class="files-lists">
 			</div> 
 			</div> 
@@ -30,7 +33,7 @@
 			<div class="col-md-9">
 				<form id="texteditor">
 					<div class="form-group">
-						<label for="label-file" class="label-file">Editor:</label>
+						<label for="label-file" class="label-file text-danger">Editor:</label>
 						<ul class="nav nav-tabs marginBottom" id="myTab">   
 					    </ul>
 						<textarea id="xmlcontent" class="form-control"></textarea>

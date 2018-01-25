@@ -52,4 +52,6 @@ Route::get('xmlcontent', 'EditorController@get_content_xml_file');
 Route::get('tveditor', 'EditorController@tvt_editor');
 
 Route::post('save_file', 'EditorController@save_content_file');
+
+Route::post('files_data', 'EditorController@get_files');
  
