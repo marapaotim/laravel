@@ -33,6 +33,20 @@
 
   <link rel="stylesheet" type="text/css" href="{{asset('codemirror/display/fullscreen.css')}}">  
 
+
+<script type="text/javascript">
+  $(document).ready(function(e) { 
+    $('.cookies-request').slideDown('slow'); 
+    $('#accept').click(function(e) {  
+      e.preventDefault(); 
+         $('.cookies-request').slideUp();
+    });
+    $('#decline').click(function(e) {  
+      e.preventDefault(); 
+         $('.cookies-request').slideUp();
+    });
+  })
+</script>
   <!-- <link rel="stylesheet" type="text/css" href="{{asset('treeview/easyTree.css')}}"> 
   <script type="text/javascript" src="{{asset('treeview/easyTree.js')}}"></script> -->
   <!-- 
@@ -47,6 +61,17 @@
 </head>
 <body> 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
+  <div class="container-fluid text-left cookies-request" style="position:absolute;background:red;width:100%;display:none;">
+      <div class="row">
+        <div class="col-md-12"> 
+          <ul class="list-inline">
+            <li><h2>This website requires cookies</h2></li>
+            <li><a href="#" id="accept" class="btn btn-default">Accept</a></li>
+            <li><a href="#" id="decline" class="btn btn-danger">Decline</a></li>
+          </ul> 
+        </div> 
+      </div>
+  </div>
     <div class="container-fluid bottom-border">
       <div class="col-md-9"></div>
       <div class="col-md-3 sub-container">
@@ -78,7 +103,7 @@
           <li><a href="/about">About Us</a></li> 
           <li><a href="#">BLOG</a></li>
           <li><a href="#">Contact Us</a></li>
-          <li><a href="/editor">Editor</a></li> 
+          <li><a href="/project">Mobile Projects</a></li> 
         </ul> 
         @if (Route::has('login'))
           <ul class="nav navbar-nav navbar-right">  

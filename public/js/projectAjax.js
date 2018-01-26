@@ -20,9 +20,10 @@ $(document).ready(function(e) {
 	         	rows = rows + '<div class="col-md-3">'; 
 	         	rows = rows + '<a href="editor?projectname='+ data +'">'; 
 				rows = rows + '<img src="./images/smartphone.png" class="img-responsive" title="'+ data +'">';
+				rows = rows + '<div class="middle"><div class="go-to-project">Go to project</div></div>';
 				rows = rows + '<figcaption class="text-center text-success">'+ data +'</figcaption>';
 	         	rows = rows + '</div>';   
-	         		console.log(data);
+	         	//	console.log(data);
 	         	});  
 	         	$('.project').append(rows); 
 	    }); 

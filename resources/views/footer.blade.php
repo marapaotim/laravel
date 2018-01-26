@@ -6,7 +6,7 @@
 	 		<li><a href="/about">About Us</a></li>
 	 		<li><a href="#">BLOG</a></li> 
 	 		<li><a href="#">Contact Us</a></li>
-	 		<li><a href="/editor">Editor</a></li>
+	 		<li><a href="/project">Mobile Projects</a></li>
 	 	</ul> 
  	</div> 
  	<div class="container-fluid footer-menu">
