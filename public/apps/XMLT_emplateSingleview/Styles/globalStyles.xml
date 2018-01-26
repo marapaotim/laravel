@@ -1,0 +1,8 @@
+<styles>
+    <class name="background">
+        <attribute padding="">centerX</attribute>
+        <attribute padding="">centerY</attribute>
+        <attribute property="width" padding="0">match_parent</attribute>
+        <attribute property="height" padding="">match_parent</attribute>
+    </class>
+</styles>

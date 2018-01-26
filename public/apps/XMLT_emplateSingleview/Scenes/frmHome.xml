@@ -1,0 +1,33 @@
+<scene>
+    <styles>
+        <class name="btnShowAlert">
+            <attribute padding="">centerX</attribute>
+            <attribute padding="">centerY</attribute>
+            <attribute property="width" padding="-100">match_parent</attribute>
+            <attribute property="height" padding="">60</attribute>
+        </class>
+    </styles>
+    
+    <assets>
+        <viewcontroller name="homeViewController" title="Home" backColor="white" hidebackbutton="YES">
+			<viewwillappear>actOnViewWillAppearHome</viewwillappear>
+            <leftbutton>bbtnHome</leftbutton>
+		</viewcontroller>
+
+        <view name="homeView" backColor="white">
+            <ontouchupinside>actOnBackgroundClick</ontouchupinside>
+        </view>
+    </assets>
+
+    <actions>
+        <action name="actStartup">
+            <display time="0" parentView="homeViewController" styleClass="globalStyles.background">homeView</display>
+            <pushViewController time="0" controller="homeViewController" animated="YES">navController</pushViewController>
+        </action>
+
+        <action name="actOnViewWillAppearHome">
+            <logToConsole prefix="homeView appeared: ">homeView</logToConsole>
+        </action>
+
+    </actions>
+</scene>

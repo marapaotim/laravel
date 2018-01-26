@@ -7,7 +7,10 @@ var editor = '';
 var path = '';
 var currentTab;
 $(document).ready(function(e) {  
-		tvt_editor('./');
+		var qs = decodeURIComponent(window.location.search.substring(1));
+		var projectname = qs.split("=");
+		console.log(projectname[1]);  
+		tvt_editor('./apps/' + projectname[1]);
 
 		//folders_zip(); 
 		$('#texteditor img').hide(); 

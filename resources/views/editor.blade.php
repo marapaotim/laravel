@@ -4,7 +4,8 @@
 			<div><img src="{{asset('images/code.jpg')}}" title="Coding" class="img-responsive"/></div>
 	</div>
 </div> 
-<div class="container">
+<div class="maxsize">
+	<div class="container">
 		<div class="row">
 			<div class="page-title">
 				<h3>Editor Page</h3>
@@ -42,7 +43,7 @@
 				</form>
 			</div>
 		</div>
-
+	</div>  
 </div>  
 
 

@@ -206,14 +206,22 @@ footer .navbar{
   max-height:400px;
   width:100% 
 }
-.president{
+.president, .project{
       border-bottom: 1px solid #0a001f;
       margin-bottom: 20px;
       padding-bottom: 30px;
 }
+.project img{
+  margin:auto;
+}
+.project a{
+  font-size:20px;
+  text-decoration: none;
+}
 .president img{
   border-radius: 50%;
 }
+
 .last-footer{
   font-size:50px;
 }

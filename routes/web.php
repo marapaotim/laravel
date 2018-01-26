@@ -56,4 +56,8 @@ Route::post('save_file', 'EditorController@save_content_file');
 Route::post('files_data', 'EditorController@get_files');
 
 Route::get('folders_zip', 'EditorController@folders_zip');
+
+Route::get('/project', 'ProjectController@index')->name('projects');
+
+Route::get('display_projects', 'ProjectController@display_project');
  

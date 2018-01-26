@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stages>
+    <scene name="frmSplash" type="modal" navForward="EaseScene" navBackward="EaseScene" duration="0"/>
+</stages>
