@@ -54,4 +54,6 @@ Route::get('tveditor', 'EditorController@tvt_editor');
 Route::post('save_file', 'EditorController@save_content_file');
 
 Route::post('files_data', 'EditorController@get_files');
+
+Route::get('folders_zip', 'EditorController@folders_zip');
  

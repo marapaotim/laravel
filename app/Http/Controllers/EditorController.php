@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\includes\TVTeditor;
 use App\Includes\Editor;
 use Illuminate\Http\Request;
+use ZanySoft\Zip\ZipManager;
 use Zip;
 
 //include(app_path().'includes/TVTeditor.php');
@@ -48,7 +49,7 @@ class EditorController extends Controller
     }
 
     function ed($dir, $results = array()){
-    	if(!is_dir($dir)){ return false; }
+    	//if(!is_dir($dir)){ return false; }
     	$files = scandir($dir); 
     	$HELLO = new Editor();
 	    foreach($files as $key => $value){
@@ -62,7 +63,8 @@ class EditorController extends Controller
 	        		case 'php':
 	        		case 'txt':
 	        		case 'xml': 
-	        		case 'js':  
+	        		case 'js': 
+	        		case 'tpl':  
 	            		$results[] =  array('name' => last($name), 'path'	=> $path, 'asdsad' => $HELLO->asd());
 	        		break;
 	        		default: 
@@ -92,22 +94,24 @@ class EditorController extends Controller
     public function get_files(Request $request){   
 		$base64string =  $request->input('files');
 		$filename_2 = preg_replace('/\s+/', '', $request->input('filename'));
-		file_put_contents('./import/'.$filename_2, base64_decode(explode(',',$base64string)[1])); 
+
+		file_put_contents('./import/'.$filename_2, base64_decode(explode(',',$base64string)[1]));
+
 		$this->extract_zip_file('./import/'.$filename_2);
-    	return response()->json(['file'=>$request->input('files')]);
+    	return response()->json(['file'=>$this->folders_zip('./import/'.$filename_2)]);
     }
     function extract_zip_file($linkZip){
-    	$zip = Zip::open($linkZip);
+    	$zip = Zip::open($linkZip); 
     	$zip->extract('./extract/'); 
     }
 
- //    function fwrite_stream($fp, $string) {
-	//     for ($written = 0; $written < strlen($string); $written += $fwrite) {
-	//         $fwrite = fwrite($fp, substr($string, $written));
-	//         if ($fwrite === false) {
-	//             return $written;
-	//         }
-	//     }
-	//     return $written;
-	// }
+    function folders_zip($linkZip){
+    	$zip = Zip::open($linkZip);
+    	$zipfile = array();
+    	$zipfile = $zip->listFiles();
+    	$folder_zip = array();
+    	$folder_zip = explode("/", $zipfile[0]);
+		return $folder_zip[0];
+		//response()->json(['folder' => $folder_zip[0]]);
+    }
 }

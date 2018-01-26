@@ -1,2 +1,0 @@
-# smarty
-PHP Smarty

@@ -14,7 +14,7 @@
 			<form>
 				<ul class="list-inline">
 					<li><a href="#" id="import" class="btn btn-danger">Import</a>  
-					<input type="file" value="upload" id="uploadFile"/></li>
+					<input type="file" value="upload" id="uploadFile" accept=".rar,.zip"/></li>
 					<li><a href="#" class="btn btn-primary">Export</a></li>
 				</ul> 
 			</form> 

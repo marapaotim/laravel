@@ -7,7 +7,9 @@ var editor = '';
 var path = '';
 var currentTab;
 $(document).ready(function(e) {  
-		tvt_editor('./'); 
+		tvt_editor('./');
+
+		//folders_zip(); 
 		$('#texteditor img').hide(); 
 		$('#save_files').click(function(e) {  
 			e.preventDefault();  
@@ -36,6 +38,7 @@ $(document).ready(function(e) {
 	var rows = '';
 	function tvt_editor(dir){
 		$('#import').attr("disabled", "disabled");
+		$('a#import').text('Loading. . .');
 		$.ajax({
 	            dataType: 'json',
 	            type:'GET',
@@ -56,9 +59,9 @@ $(document).ready(function(e) {
 	        	$('.option-list-2 li a').click(function(e) {
 				  e.preventDefault();  
 				 $(this).closest("li").find("[class^='options']").toggle();
-				}); 
-				
-				 $("#import").removeAttr("disabled");  
+				});  
+ 				$("#import").removeAttr("disabled");  
+				$('a#import').text('Import');
 	    	});  
 	} 
 	function display_files(itemarray){  
@@ -98,6 +101,19 @@ $(document).ready(function(e) {
 	    }); 
 	}
 
+	// function folders_zip(){
+	// 	$.ajax({
+	//             dataType: 'json',
+	//             type:'GET',
+	//             url: 'folders_zip',
+	//             _token: '{{ csrf_token() }}'
+	//         }).done(function(result){ 
+	//         	console.log(result);
+	//         	//var foldername = result[0].split('/');
+	//          	//console.log(foldername[0]);
+	//     }); 
+	// }
+
 
 function getBase64(file) {
    var reader = new FileReader();
@@ -109,6 +125,8 @@ function getBase64(file) {
      console.log('Error: ', error);
    };
 }
+
+var folder_name = '';
 function ajaxFile(files, filename){ 
 	$.ajax({
 	            dataType: 'json',
@@ -119,16 +137,20 @@ function ajaxFile(files, filename){
 	            	filename:filename
 	            },
 	            _token: '{{ csrf_token() }}'
-	        }).done(function(result){  
+	        }).done(function(result){ 
+				tvt_editor('./extract/' + result.file);
+	        	//console.log('json' + result.file);
 	         	console.log(result); 
 	    }); 
-	var parts = filename.split(".");
-	var x = parts[0];
-	tvt_editor('./extract/' + x);
+	//var parts = filename.substr(0, filename.lastIndexOf('.')) || filename;
+	//var x = parts[0];
+	//console.log('string ' + folder_name);
 }
 
 	$('#uploadFile').change( function(event) {
 		$('div.option-list-2 .file-name').html(event.target.files[0].name); 
+		$('#import').attr("disabled", "disabled"); 
+		$('a#import').text('Loading. . .');
 		getBase64(event.target.files[0]); 
 	}); 
 
