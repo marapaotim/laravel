@@ -197,7 +197,7 @@ footer .navbar{
   margin-bottom: 0px ; 
 
 }  
-/* Footer */
+/* Footer========================================================= */
 
 .about-page img{
   width:100%
@@ -244,19 +244,17 @@ footer .navbar{
 .navbar-fixed-top{
         border-width: 1px 1px 1px !important;
 }
-.project img:hover{
+.project img:hover, .project .project-hov:hover img{
   opacity: 0.3;
+ filter: sepia(100%);
    /* opacity: 10;*/
-}
+} 
 .go-to-project{ 
-  background:#0a001f; 
-  color:#fff; 
-  padding:10px;
-}
-.project .image:hover  {
-  opacity: 0.3;
-}
-.project .middle:hover{
+    background: #ff471a;
+    color: #fff;
+    padding: 5px;
+} 
+.project .project-hov:hover .middle{
   opacity: 1;
 }
 .middle{ 
@@ -271,7 +269,7 @@ footer .navbar{
 }
 
 
-/* Editor Tabs */
+/* Editor Tabs============================================== */
       .nav-tabs > li .close {
           margin: -2px 0 0 10px;
           font-size: 18px;
@@ -303,4 +301,5 @@ footer .navbar{
 .option-list-2 input#uploadFile{
   display: none;
 }
-      
+
+/* Sidebar===================================== */

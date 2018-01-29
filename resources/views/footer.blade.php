@@ -1,3 +1,12 @@
+	
+ 
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script> 
+	</div>
 </div>  
  <footer class="navbar-bottom"> 
  	<div class="navbar footer-menu"> 
@@ -28,6 +37,6 @@
  			</div>
  		</div>
  	</div>
- </footer>   
+ </footer>  
 </body>
 </html>

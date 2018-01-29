@@ -17,7 +17,7 @@ $(document).ready(function(e) {
 	         	//console.log(result); 
 	         	var rows = '';
 	         	$.each(result, function(index, data) {  
-	         	rows = rows + '<div class="col-md-3">'; 
+	         	rows = rows + '<div class="col-md-3 project-hov">'; 
 	         	rows = rows + '<a href="editor?projectname='+ data +'">'; 
 				rows = rows + '<img src="./images/smartphone.png" class="img-responsive" title="'+ data +'">';
 				rows = rows + '<div class="middle"><div class="go-to-project">Go to project</div></div>';

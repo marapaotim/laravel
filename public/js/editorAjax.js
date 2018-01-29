@@ -141,7 +141,7 @@ function ajaxFile(files, filename){
 	            },
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){ 
-				tvt_editor('./extract/' + result.file);
+				tvt_editor('./apps/' + result.file);
 	        	//console.log('json' + result.file);
 	         	console.log(result); 
 	    }); 

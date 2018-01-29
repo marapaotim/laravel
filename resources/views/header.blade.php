@@ -36,7 +36,7 @@
 
 <script type="text/javascript">
   $(document).ready(function(e) { 
-    $('.cookies-request').slideDown('slow'); 
+   // $('.cookies-request').slideDown('slow'); 
     $('#accept').click(function(e) {  
       e.preventDefault(); 
          $('.cookies-request').slideUp();
@@ -46,7 +46,7 @@
          $('.cookies-request').slideUp();
     });
   })
-</script>
+</script> 
   <!-- <link rel="stylesheet" type="text/css" href="{{asset('treeview/easyTree.css')}}"> 
   <script type="text/javascript" src="{{asset('treeview/easyTree.js')}}"></script> -->
   <!-- 
@@ -96,6 +96,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/index">IGenDev Technologies</a>
+      <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
     </div> 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
@@ -128,4 +129,5 @@
     </div>
   </div>
 </nav>
- <div class="wrapper"> 
+<div id="wrapper">
+  <div id="page-content-wrapper"> 

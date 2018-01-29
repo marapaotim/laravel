@@ -102,7 +102,7 @@ class EditorController extends Controller
     }
     function extract_zip_file($linkZip){
     	$zip = Zip::open($linkZip); 
-    	$zip->extract('./extract/'); 
+    	$zip->extract('./apps/'); 
     }
 
     function folders_zip($linkZip){
