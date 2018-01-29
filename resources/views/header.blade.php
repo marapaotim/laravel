@@ -95,8 +95,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/index">IGenDev Technologies</a>
-      <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+      <a class="navbar-brand" href="/index">IGenDev Technologies</a> 
     </div> 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
