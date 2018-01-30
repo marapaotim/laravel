@@ -15,6 +15,36 @@
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <!-- BxSlider --> 
 
+<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+<script type="text/javascript">
+  $(document).ready(function(e) {  
+   $( "#dialog" ).dialog({
+      dialogClass: "no-close",
+      closeOnEscape: false,
+      autoOpen: false,
+      height: 300,
+        width: 508,
+        modal: true,
+      buttons: [
+        {
+            text: "I Agree",
+            click: $.noop,
+            type: "submit"
+        },
+        {
+            text: "Close",
+            click: function() {
+                $( this ).dialog( "close" );
+            }
+        }
+    ],
+    position: {my: "center",  at: "center", of: $("body"),within: $("body") }
+    }); 
+ });
+</script>
+
 
   <!-- DataTables Library -->
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -47,6 +77,7 @@
     });
   })
 </script> 
+
   <!-- <link rel="stylesheet" type="text/css" href="{{asset('treeview/easyTree.css')}}"> 
   <script type="text/javascript" src="{{asset('treeview/easyTree.js')}}"></script> -->
   <!-- 
@@ -129,4 +160,16 @@
   </div>
 </nav>
 <div id="wrapper">
-  <div id="page-content-wrapper"> 
+  <div id="page-content-wrapper">
+<!-- 
+ <button id="myBtn">Open Modal</button>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <!-- <div class="modal-content"> 
+    <h2>Important Notice</h2>
+    <p>This Website uses cookies, web beacons, and other similar technologies to collect information about your device, browsing actions and patterns, and improve your experience when you visit. By continuing to browse our Website, you agree our use of these information in accordance with our Privacy Policy.</p>
+    <button>I Agree</button> 
+  </div>
+
+</div> -->

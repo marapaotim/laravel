@@ -1,11 +1,9 @@
-	
- 
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script> 
+
+<div id="dialog" title="Important Notice">
+  <p>
+    This Website uses web tracking through Google analytics to obtain certain information about your equipment, browsing actions and patterns. Please also read our <a href="privacy-statement.php" target="_blank">Privacy Statement</a> for the use of the personal information you provide to this Website. By clicking the “I Agree” button and continuing to browse our Website, you agree to SMB’s use of all these information as provided in our Privacy Statement.
+    </p>
+</div> 
 	</div>
 </div>  
  <footer class="navbar-bottom"> 
@@ -38,5 +36,13 @@
  		</div>
  	</div>
  </footer>  
+
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');  
+    modal.style.display = "block";  
+ 
+</script>
 </body>
 </html>
