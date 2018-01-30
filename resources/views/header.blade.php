@@ -15,10 +15,10 @@
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <!-- BxSlider --> 
 
-<script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+<!-- <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-<script type="text/javascript">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" /> -->
+<!-- <script type="text/javascript">
   $(document).ready(function(e) {  
    $( "#dialog" ).dialog({
       dialogClass: "no-close",
@@ -43,7 +43,7 @@
     position: {my: "center",  at: "center", of: $("body"),within: $("body") }
     }); 
  });
-</script>
+</script> -->
 
 
   <!-- DataTables Library -->
@@ -64,19 +64,6 @@
   <link rel="stylesheet" type="text/css" href="{{asset('codemirror/display/fullscreen.css')}}">  
 
 
-<script type="text/javascript">
-  $(document).ready(function(e) { 
-   // $('.cookies-request').slideDown('slow'); 
-    $('#accept').click(function(e) {  
-      e.preventDefault(); 
-         $('.cookies-request').slideUp();
-    });
-    $('#decline').click(function(e) {  
-      e.preventDefault(); 
-         $('.cookies-request').slideUp();
-    });
-  })
-</script> 
 
   <!-- <link rel="stylesheet" type="text/css" href="{{asset('treeview/easyTree.css')}}"> 
   <script type="text/javascript" src="{{asset('treeview/easyTree.js')}}"></script> -->
@@ -126,7 +113,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/index">IGenDev Technologies</a> 
+     <a class="navbar-brand" href="/index">IGenDev Technologies</a>
     </div> 
     <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
@@ -159,8 +146,6 @@
     </div>
   </div>
 </nav>
-<div id="wrapper">
-  <div id="page-content-wrapper">
 <!-- 
  <button id="myBtn">Open Modal</button>
 <div id="myModal" class="modal">

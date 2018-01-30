@@ -19,6 +19,9 @@ Route::get('/', function () {
 //     return view('login');
 // });
 
+/*---------------------------
+	Car Page Routers
+-----------------------------*/
 Route::resource('cars', 'CarController');
 
 Route::get('/test', 'CarController@show')->name('test'); 
@@ -34,14 +37,33 @@ Route::get('/xml', 'CarController@xmltohtml');
 
 Route::get('helloworld', 'loginController@show');
 
-
+/*---------------------------
+	Auth Routers
+-----------------------------*/
 Auth::routes();
+
+/*---------------------------
+	Home Page Routers
+-----------------------------*/
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/*---------------------------
+	Index Routers
+-----------------------------*/
+
 Route::get('/index', 'IndexController@index')->name('index');
 
+/*---------------------------
+	About Page Routers
+-----------------------------*/
+
 Route::get('/about', 'AboutController@index')->name('about');
+
+
+/*---------------------------
+	Editor Page Routers
+-----------------------------*/
 
 Route::get('/editor', 'EditorController@index')->name('editor');
 
@@ -57,7 +79,13 @@ Route::post('files_data', 'EditorController@get_files');
 
 Route::get('folders_zip', 'EditorController@folders_zip');
 
+/*-------------------------------
+	Mobile Project Page Routers
+---------------------------------*/
+
 Route::get('/project', 'ProjectController@index')->name('projects');
 
 Route::get('display_projects', 'ProjectController@display_project');
+
+Route::post('get_file_zip', 'ProjectController@get_files');
  

@@ -5,16 +5,55 @@ $.ajaxSetup({
 });
 
 $(document).ready(function(e) {
-	display_project();   
+	display_project();  
+});
 
-	function display_project(){
+function getBase64(file) {
+   var reader = new FileReader();
+   reader.readAsDataURL(file);
+   reader.onload = function () {
+   	get_files(reader.result, file.name)
+    // console.log(reader.result, file.name);
+   };
+   reader.onerror = function (error) {
+     console.log('Error: ', error);
+   };
+}
+$('#uploadFile').change( function(event) { 
+		$('#import-proj').attr("disabled", "disabled"); 
+		$('a#import-proj').text('Loading. . .');
+		getBase64(event.target.files[0]); 
+}); 
+
+$("#import-proj").click(function(){
+    $('#uploadFile').trigger('click');
+});
+function get_files(files, filename){
+	$.ajax({
+	            dataType: 'json',
+	            type:'POST',
+	            url: 'get_file_zip',
+	            data:{
+	            	files: files,
+	            	filename:filename
+	            },
+	            _token: '{{ csrf_token() }}'
+	        }).done(function(result){ 
+	        	display_project();  
+	         	console.log(result); 
+	    }); 
+}
+function display_project(){
+		$('#import-proj').attr("disabled", "disabled"); 
+		$('a#import-proj').text('Loading. . .');
 		$.ajax({
 	            dataType: 'json',
 	            type:'GET',
 	            url: 'display_projects', 
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){  
-	         	//console.log(result); 
+	         	//console.log(result);
+	         	$('.project').html(''); 
 	         	var rows = '';
 	         	$.each(result, function(index, data) {  
 	         	rows = rows + '<div class="col-md-3 project-hov">'; 
@@ -26,7 +65,7 @@ $(document).ready(function(e) {
 	         	//	console.log(data);
 	         	});  
 	         	$('.project').append(rows); 
+	         	$("#import-proj").removeAttr("disabled");  
+				$('a#import-proj').html('<i class="fa fa-download" aria-hidden="true"></i>  Import Project');
 	    }); 
 	}
-
-});
