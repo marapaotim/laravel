@@ -42,4 +42,24 @@ class ProjectController extends Controller
         $zip = Zip::open($linkZip); 
         $zip->extract('./apps/'); 
     }
+
+    public function create_projects(Request $request){
+        try{
+            if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $request->input('folder_name')))
+            {
+                return response()->json(['status'=>'Special Characters are invalid for creating project!']);
+            }
+            if (!is_dir('./apps/'.$request->input('folder_name'))) {
+                mkdir('./apps/'.$request->input('folder_name'), 0777, true);
+                return response()->json(['status'=>'Project Successfully Created']);
+            }
+            else
+            {
+                return response()->json(['status'=>'Error! Project Already Exists']);
+            }
+        }catch (Exception $e)
+        {
+             return response()->json(['status'=>'Caught exception: ',  $e->getMessage(), "\n"]); 
+        } 
+    }
 }

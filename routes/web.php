@@ -88,4 +88,7 @@ Route::get('/project', 'ProjectController@index')->name('projects');
 Route::get('display_projects', 'ProjectController@display_project');
 
 Route::post('get_file_zip', 'ProjectController@get_files');
+
+Route::post('create_mobile_project', 'ProjectController@create_projects');
+
  

@@ -1,11 +1,12 @@
 @include('header')
-<div class="container-fluid header-other">
+@include('sidebar')
+<!-- <div class="container-fluid header-other">
 	<div class="row">
 			<div><img src="{{asset('images/code.jpg')}}" title="Coding" class="img-responsive"/></div>
 	</div>
-</div> 
+</div>  -->
 <div class="maxsize">
-	<div class="container">
+	<div class="container content-wrap">
 		<div class="row">
 			<div class="page-title">
 				<h3>Editor Page</h3>
@@ -44,7 +45,9 @@
 			</div>
 		</div>
 	</div>  
-</div>  
+</div>
+	</div>  
+</div>    
 
 
 
@@ -59,6 +62,12 @@
 <script type="text/javascript" src="/codemirror/edit/closetag.js"></script>
 <script type="text/javascript" src="/codemirror/display/fullscreen.js"></script>
 <script type="text/javascript" src="/codemirror/keymap/sublime.js"></script>
+<script type="text/javascript">
+  $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script> 
 
 <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/codemirror.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.23.0/mode/xml/xml.min.js"></script>
@@ -78,4 +87,3 @@
 
 <script src="/TVTeditor/src/js/tvteditor.js"></script> -->
  
-@include('footer')

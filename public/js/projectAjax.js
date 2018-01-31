@@ -3,9 +3,22 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-
+var modal;
 $(document).ready(function(e) {
 	display_project();  
+	modal = document.getElementById('myModal');
+	$("#create-proj").click(function () {  
+		modal.style.display = "block";
+    });
+
+    $("#myModal span").click(function () {  
+		modal.style.display = "none";
+    });
+
+    $("#form-project").submit(function(e) {
+        e.preventDefault();  
+        create_project(); 
+    });
 });
 
 function getBase64(file) {
@@ -69,3 +82,20 @@ function display_project(){
 				$('a#import-proj').html('<i class="fa fa-download" aria-hidden="true"></i>  Import Project');
 	    }); 
 	}
+
+function create_project(){
+	var folder_name = $('#proj-name').val();
+	$.ajax({
+	            dataType: 'json',
+	            type:'post',
+	            url: 'create_mobile_project', 
+	            data:{
+	            	folder_name: folder_name, 
+	            }, 
+	            _token: '{{ csrf_token() }}'
+	        }).done(function(result){   
+	        	display_project();
+	        	alert(result.status);
+	        	$('#form-project')[0].reset(); 
+	    });
+}
