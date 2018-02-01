@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 
 // Route::get('/login', function () {
 //     return view('login');
@@ -90,5 +99,7 @@ Route::get('display_projects', 'ProjectController@display_project');
 Route::post('get_file_zip', 'ProjectController@get_files');
 
 Route::post('create_mobile_project', 'ProjectController@create_projects');
+
+Route::get('/xml', 'ProjectController@xml_data');
 
  

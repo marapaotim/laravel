@@ -97,12 +97,12 @@ class EditorController extends Controller
 
 		file_put_contents('./import/'.$filename_2, base64_decode(explode(',',$base64string)[1]));
 
-		$this->extract_zip_file('./import/'.$filename_2);
+		$this->extract_zip_file('./import/'.$filename_2, $request->input('project_fold'));
     	return response()->json(['file'=>$this->folders_zip('./import/'.$filename_2)]);
     }
-    function extract_zip_file($linkZip){
+    function extract_zip_file($linkZip, $project_fold){
     	$zip = Zip::open($linkZip); 
-    	$zip->extract('./apps/'); 
+    	$zip->extract('./apps/'.$project_fold.'/'); 
     }
 
     function folders_zip($linkZip){

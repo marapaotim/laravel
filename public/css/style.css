@@ -98,6 +98,9 @@ body {
   border-bottom:1px solid #0a001f;
   margin-bottom: 30px;
 } 
+.page-title h3{
+  font-weight: bold;
+}
 .header-home img{
   max-height:500px;
   width:100% 
@@ -225,6 +228,7 @@ footer .navbar{
 }
 .president img{
   border-radius: 50%;
+  height: 150px;
 }
 
 .last-footer{
@@ -443,7 +447,7 @@ footer .navbar{
 }
  
 .modal-content-custom {
-    background-color: #fefefe;
+    background-color: #cfcfcf;
     margin: auto;
     padding: 20px;
     border: 3px solid #000;
@@ -473,3 +477,54 @@ footer .navbar{
       border: 1px solid #000;
     color: #000;
 } 
+
+/*-------------------------------
+              Blog
+--------------------------------*/ 
+.blog-img-height{
+  height: 350px;
+  overflow: hidden;
+}
+.blog-img-height img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}    
+.blog-gallery{ 
+  overflow: hidden;
+  padding: 3px;
+}  
+.blog-post{
+    position: absolute;
+    top: 55%;
+    left: 3px;
+    width: 90%;
+    display: block;
+    padding: 8px 8px 8px 48px;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 200;
+    color: #fff;
+} 
+.blog-post h2 a{
+  color: #fff;
+  font-weight: bold;
+}
+.blog-img-height img:hover{
+ cursor: pointer;
+  filter:grayscale(100%);
+}
+/*-------------------------------
+          Contact Info
+--------------------------------*/ 
+.contact-info h3{ 
+    color: #0a001f;
+    font-weight: bold;
+    border-left: 2px solid #0a001f;
+    padding-left: 5px;
+}
+.contact-info p{  
+  padding-left: 7px;
+}
+.contact-form label, .contact-form input[type=text]{
+  color: #000;
+}

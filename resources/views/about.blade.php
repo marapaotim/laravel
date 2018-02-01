@@ -12,7 +12,7 @@
 			</div>
 			<div class="col-md-12 president"> 
 				<div class="col-md-2 text-center">
-					<img src="http://placehold.it/350x350" class="img-responsive">
+					<img src="./images/cat.jpg" class="img-responsive">
 					<h3>President</h3>
 				</div>
 				<div class="col-md-10">

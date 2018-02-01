@@ -45,10 +45,11 @@ class ProjectController extends Controller
 
     public function create_projects(Request $request){
         try{
-            if (preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $request->input('folder_name')))
-            {
-                return response()->json(['status'=>'Special Characters are invalid for creating project!']);
-            }
+            foreach ($this->special_characters() as $key => $value) {
+                if(strpos($request->input('folder_name'), $value) !== false){
+                    return response()->json(['status'=>'Special Character like \/:*?"<>| are invalid']);
+                }
+            } 
             if (!is_dir('./apps/'.$request->input('folder_name'))) {
                 mkdir('./apps/'.$request->input('folder_name'), 0777, true);
                 return response()->json(['status'=>'Project Successfully Created']);
@@ -62,4 +63,15 @@ class ProjectController extends Controller
              return response()->json(['status'=>'Caught exception: ',  $e->getMessage(), "\n"]); 
         } 
     }
+
+    function special_characters(){
+        return array('/', '\\', ':', '*', '?', '"', '<', '>', '|');
+    }
+
+    public function xml_data(){ 
+        $url = 'http://www.rss-specifications.com/blog-feed.xml'; 
+        $xml = simpleXML_load_file($url);
+        print_r('<pre>');print_r($xml);print_r('</pre>');
+    }
 }
+//\/:*?"<>|

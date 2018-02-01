@@ -6,11 +6,15 @@ $.ajaxSetup({
 var editor = '';
 var path = '';
 var currentTab;
+var project_path;
+var project_fold;
 $(document).ready(function(e) {  
 		var qs = decodeURIComponent(window.location.search.substring(1));
 		var projectname = qs.split("=");
-		console.log(projectname[1]);  
-		tvt_editor('./apps/' + projectname[1]);
+		console.log(projectname[1]); 
+		project_path =  './apps/' + projectname[1];
+		project_fold = projectname[1];
+		tvt_editor(project_path);
 
 		//folders_zip(); 
 		$('#texteditor img').hide(); 
@@ -137,11 +141,12 @@ function ajaxFile(files, filename){
 	            url: 'files_data',
 	            data:{
 	            	files: files,
-	            	filename:filename
+	            	filename:filename,
+	            	project_fold:project_fold + '/'
 	            },
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){ 
-				tvt_editor('./apps/' + result.file);
+				tvt_editor(project_path);
 	        	//console.log('json' + result.file);
 	         	console.log(result); 
 	    }); 

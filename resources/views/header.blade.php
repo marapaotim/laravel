@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
 
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -119,8 +122,8 @@
         <ul class="nav navbar-nav navbar-left">
           <li><a href="/index">Home</a></li> 
           <li><a href="/about">About Us</a></li> 
-          <li><a href="#">BLOG</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a href="/blog">BLOG</a></li>
+          <li><a href="/contact">Contact Us</a></li>
           <li><a href="/project">Mobile Projects</a></li> 
         </ul> 
         @if (Route::has('login'))

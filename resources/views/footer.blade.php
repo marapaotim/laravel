@@ -4,8 +4,8 @@
 	 	<ul class="nav navbar-nav">
 	 		<li><a href="/index">Home </a></li>
 	 		<li><a href="/about">About Us</a></li>
-	 		<li><a href="#">BLOG</a></li> 
-	 		<li><a href="#">Contact Us</a></li>
+	 		<li><a href="/blog">BLOG</a></li> 
+	 		<li><a href="/contact">Contact Us</a></li>
 	 		<li><a href="/project">Mobile Projects</a></li>
 	 	</ul> 
  	</div> 

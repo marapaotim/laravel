@@ -1,0 +1,61 @@
+<scene>
+    <styles>
+		<class name="imgLogoStyle">
+			<attribute padding="">centerX</attribute>
+			<attribute padding="-64">centerY</attribute>
+			<attribute property="width" padding="">186</attribute>
+			<attribute property="height" padding="">92</attribute>
+		</class>
+
+        <class name="lblSplash">
+            <attribute padding="">centerX</attribute>
+            <attribute padding="">centerY</attribute>
+            <attribute property="width" padding="">match_parent</attribute>
+            <attribute property="height" padding="">70</attribute>
+        </class>
+	</styles>
+    
+    <globalAssets>
+        <navigationcontroller name="navController" navBarTintColor="clear" toolBarTintColor=""
+            appearanceColor="white" translucent="NO" enableBackSwipe="NO" statusBarStyle="light"
+            titleColor="black" hideBarShadow="NO" backgroundImage="">
+			<didPopController>actDidPopController</didPopController>
+		</navigationcontroller>
+
+        <variable name="varGlobalDBVariable"/>
+
+        <database name="globalDatabase" databasename="Database.sqlite" variable="varGlobalDBVariable"/>
+    </globalAssets>
+    
+    <assets>
+        <viewcontroller name="splashViewController" title="Splash Screen" backColor="white">
+			<viewwillappear>actOnViewWillAppearSplash</viewwillappear>
+            <viewdidappear>actOnViewDidAppearSplash</viewdidappear>
+		</viewcontroller>
+
+        <view name="splashView" backColor="clear">
+            <imageview name="imgSplash" contentmode="scaletofill" backColor="white"
+                styleClass="globalStyles.background"/>
+
+            <ulabel name="lblSplash" backColor="clear" fontFamily="Lato-Bold" fontSize="22" fontColor="black" textAlignment="center" autosizetext="NO" numberOfLines="4" styleClass="lblSplash">Splash Screen</ulabel>
+        </view>
+
+
+    </assets>
+    
+    <actions>
+        <action name="actStartup">
+            <addController time="0">navController</addController>
+            
+            <display time="0" parentView="splashViewController" styleClass="globalStyles.background">splashView</display>
+            
+            <hideStatusBar time="0" animationType="slide">NO</hideStatusBar>
+
+            <pushViewController time="0" controller="splashViewController" animated="YES">navController</pushViewController>
+        </action>
+
+        <action name="actOnViewWillAppearSplash">
+            <loadSubScene>frmHome</loadSubScene>
+        </action>
+    </actions>
+</scene>

@@ -14,12 +14,12 @@ $(document).ready(function(e) {
     $("#myModal span").click(function () {  
 		modal.style.display = "none";
     });
-
-    $("#form-project").submit(function(e) {
-        e.preventDefault();  
-        create_project(); 
-    });
 });
+
+   $("#form-project").submit(function(e) {
+       e.preventDefault();  
+       create_project(); 
+   });
 
 function getBase64(file) {
    var reader = new FileReader();
