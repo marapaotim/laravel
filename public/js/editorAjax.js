@@ -232,6 +232,3 @@ if(confirm("Export Project?") == true)
         	window.location = result.file_rar;
         }); 
 });
-
-
-

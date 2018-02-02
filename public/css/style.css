@@ -3,24 +3,11 @@ html {
   min-height: 100%; 
 } 
 body {  
-    padding-top: 109px;
+    padding-top: 70px;
     height: 100%;
     margin: 0 auto -155px; 
     overflow-x: hidden; 
-}
-/* .footer {
-      position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #3097D1;
-    color: #fff;
-}
-.footer .footer-padd{ 
-    padding-top: 10px;
-    /* padding-bottom: 20px; 
-     border-bottom: 2px solid #fff;
-    margin-bottom: 10px;
-}*/ 
+} 
 .text-muted{
 	color:#fff !important;
 }
@@ -316,6 +303,7 @@ footer .navbar{
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  padding-top: 39px;
 }
 
 #wrapper.toggled {
@@ -510,7 +498,8 @@ footer .navbar{
   font-weight: bold;
 }
 .blog-img-height img:hover, 
-.blog-sidebar img:hover{
+.blog-sidebar img:hover,
+.services-2 img:hover{
  cursor: pointer;
   filter:grayscale(100%);
 }
@@ -536,12 +525,7 @@ footer .navbar{
 .blog-sidebar img{
   margin:auto;
 } 
-@media screen and (max-width: 768px) {
-  .blog-sidebar{
-    padding-bottom:2px;
-    padding-top:2px;
-  }
-}
+
 /*-------------------------------
           Contact Info
 --------------------------------*/ 
@@ -557,4 +541,15 @@ footer .navbar{
 }
 .contact-form label, .contact-form input[type=text]{
   color: #000;
+}
+
+
+/*-------------------------------
+          Mobile CSS
+--------------------------------*/ 
+@media screen and (max-width: 768px) {
+  .blog-sidebar{
+    padding-bottom:2px;
+    padding-top:2px;
+  } 
 }

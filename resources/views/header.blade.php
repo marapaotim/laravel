@@ -82,7 +82,7 @@
 </head>
 <body> 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
-  <div class="container-fluid text-left cookies-request" style="position:absolute;background:red;width:100%;display:none;">
+<!--   <div class="container-fluid text-left cookies-request" style="position:absolute;background:red;width:100%;display:none;">
       <div class="row">
         <div class="col-md-12"> 
           <ul class="list-inline">
@@ -92,15 +92,15 @@
           </ul> 
         </div> 
       </div>
-  </div>
+  </div> -->
     <div class="container-fluid bottom-border">
       <div class="col-md-9"></div>
       <div class="col-md-3 sub-container">
         <div class="row">
-          <div class="input-group stylish-input-group">
+          <div class="input-group stylish-input-group search-header">
               <input type="text" class="form-control"  placeholder="Search" >
               <span class="input-group-addon">
-                  <button type="submit">
+                  <button type="submit" id="btnSearch">
                       <span class="glyphicon glyphicon-search"></span>
                   </button>  
               </span>
@@ -148,16 +148,4 @@
                                         </form>  
     </div>
   </div>
-</nav>
-<!-- 
- <button id="myBtn">Open Modal</button>
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <!-- <div class="modal-content"> 
-    <h2>Important Notice</h2>
-    <p>This Website uses cookies, web beacons, and other similar technologies to collect information about your device, browsing actions and patterns, and improve your experience when you visit. By continuing to browse our Website, you agree our use of these information in accordance with our Privacy Policy.</p>
-    <button>I Agree</button> 
-  </div>
-
-</div> -->
+</nav> 

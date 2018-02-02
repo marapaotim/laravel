@@ -1,4 +1,9 @@
 @include('header')
+<div class="container-fluid header-other">
+	<div class="row">
+			<div><img src="{{asset('images/pandas.jpg')}}" title="Pandas" class="img-responsive"/></div>
+	</div>
+</div>
 <div class="maxsize">
 	<div class="container blog">
 		<div class="row">
