@@ -86,7 +86,9 @@ Route::post('save_file', 'EditorController@save_content_file');
 
 Route::post('files_data', 'EditorController@get_files');
 
-Route::get('folders_zip', 'EditorController@folders_zip');
+Route::get('folders_zip', 'EditorController@folders_zip'); 
+
+Route::post('export_proj', 'EditorController@export_project');
 
 /*-------------------------------
 	Mobile Project Page Routers
@@ -102,4 +104,7 @@ Route::post('create_mobile_project', 'ProjectController@create_projects');
 
 Route::get('/xml', 'ProjectController@xml_data');
 
- 
+/*-------------------------------
+			Contact Us
+---------------------------------*/
+Route::post('send_mail', 'ContactController@send_email'); 

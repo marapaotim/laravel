@@ -1,10 +1,5 @@
 @include('header')
-@include('sidebar')
-<!-- <div class="container-fluid header-other">
-	<div class="row">
-			<div><img src="{{asset('images/code.jpg')}}" title="Coding" class="img-responsive"/></div>
-	</div>
-</div>  -->
+@include('sidebar') 
 <div class="maxsize">
 	<div class="container content-wrap">
 		<div class="row">
@@ -17,20 +12,12 @@
 				<ul class="list-inline">
 					<li><a href="#" id="import" class="btn btn-danger">Import</a>  
 					<input type="file" value="upload" id="uploadFile" accept=".rar,.zip"/></li>
-					<li><a href="#" class="btn btn-primary">Export</a></li>
+					<li><a href="#" id="export_project" class="btn btn-primary">Export</a></li>
 				</ul> 
 			</form> 
 				<div class="text-center file-name"></div>
-			<div class="files-lists">
-			</div> 
-			</div> 
-					<!--<li class="check"><a href="note.xml">Files 1</a></li>
-					<li class="check"><a href="#">Files 2</a></li>
-					<li class="check"><a href="#">Files 3</a></li>
-					<li class="check"><a href="#">Files 4</a></li>
-					<li class="check"><a href="#">Files 5</a></li>
-					<li class="check"><a href="#">Files 6</a></li>
-					<li class="check"><a href="#">Files 7</a></li> 	-->	 
+				<div class="files-lists"></div> 
+			</div>   
 			</div>
 			<div class="col-md-9">
 				<form id="texteditor">

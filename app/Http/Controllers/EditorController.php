@@ -13,9 +13,7 @@ class EditorController extends Controller
 {   
 	private $editor; 
 	public function index()
-    {
-    	//$this->dir = './';
-    	//$this->tvteditor = new TVTeditor($this->dir);
+    { 
         return view('editor');
     }
 
@@ -80,8 +78,7 @@ class EditorController extends Controller
 	    return $results;
     }
 
-    public function save_content_file(Request $request){
-    		//$this->fwrite_stream($request->input('path'), $request->input('content'));
+    public function save_content_file(Request $request){ 
     	    $file   = fopen($request->input('path'), "w"); 
 		    $pieces = str_split($request->input('content'), 1024 * 4);
 		    foreach ($pieces as $piece) {
@@ -101,17 +98,47 @@ class EditorController extends Controller
     	return response()->json(['file'=>$this->folders_zip('./import/'.$filename_2)]);
     }
     function extract_zip_file($linkZip, $project_fold){
+
     	$zip = Zip::open($linkZip); 
+
     	$zip->extract('./apps/'.$project_fold.'/'); 
     }
 
     function folders_zip($linkZip){
+
     	$zip = Zip::open($linkZip);
+
     	$zipfile = array();
+
     	$zipfile = $zip->listFiles();
+
     	$folder_zip = array();
+
     	$folder_zip = explode("/", $zipfile[0]);
-		return $folder_zip[0];
-		//response()->json(['folder' => $folder_zip[0]]);
+
+		return $folder_zip[0]; 
+    }
+
+    public function export_project(Request $request){
+
+    	$path_project = array(
+    		'folder_path' => $request->input('project_path'), 
+    	);
+
+    	if (file_exists($path_project['folder_path'] . '.zip')) {
+
+    		unlink($path_project['folder_path'] . '.zip');
+
+		}
+
+    	$project_name = explode("\\", $path_project['folder_path']);
+
+    	$zip = Zip::create($path_project['folder_path'].'.zip');
+
+    	$zip->add($path_project['folder_path'], last($project_name)); 
+
+    	return response()->json([
+    		'file_rar' => 'http://localhost:8000' . str_replace('.','',$path_project['folder_path']) . '.zip']
+    	);
     }
 }

@@ -15,8 +15,7 @@ $(document).ready(function(e) {
 		project_path =  './apps/' + projectname[1];
 		project_fold = projectname[1];
 		tvt_editor(project_path);
-
-		//folders_zip(); 
+ 
 		$('#texteditor img').hide(); 
 		$('#save_files').click(function(e) {  
 			e.preventDefault();  
@@ -106,21 +105,7 @@ $(document).ready(function(e) {
 	         	$('#texteditor img').hide(); 
 	         	alert(result.status); 
 	    }); 
-	}
-
-	// function folders_zip(){
-	// 	$.ajax({
-	//             dataType: 'json',
-	//             type:'GET',
-	//             url: 'folders_zip',
-	//             _token: '{{ csrf_token() }}'
-	//         }).done(function(result){ 
-	//         	console.log(result);
-	//         	//var foldername = result[0].split('/');
-	//          	//console.log(foldername[0]);
-	//     }); 
-	// }
-
+	} 
 
 function getBase64(file) {
    var reader = new FileReader();
@@ -146,13 +131,9 @@ function ajaxFile(files, filename){
 	            },
 	            _token: '{{ csrf_token() }}'
 	        }).done(function(result){ 
-				tvt_editor(project_path);
-	        	//console.log('json' + result.file);
+				tvt_editor(project_path); 
 	         	console.log(result); 
-	    }); 
-	//var parts = filename.substr(0, filename.lastIndexOf('.')) || filename;
-	//var x = parts[0];
-	//console.log('string ' + folder_name);
+	    });  
 }
 
 	$('#uploadFile').change( function(event) {
@@ -201,19 +182,7 @@ function retrieveXML(data){
    			if(tabexist == false)
    			{
    				$('#myTab').append('<li><a data-toggle="tab" href="'+ path +'" onclick="tabs_file(this); return false" data-path='+ path +'><button class="close closeTab" type="button" >×</button>'+filename+'</a></li>');  
-   			} 
-   			//if ( ) {
-			//}
-   //      	$( ".nav-tabs" ).each(function( index ) {
-   //      		console.log($(this + 'li a').text().substring(1).toString());
-   //      		if((filename == $(this).text().substring(1).toString()).length == 0 || (filename == $(this).text().substring(1).toString()) == false){
-        			
-   //      		}
-  	// 			// if(filename !== $(this).text().substring(1).toString()){
-  	// 			// 	console.log(filename);
-  	// 			// //	$('.nav-tabs').append('<li><a href="'+ path +'" onclick="tabs_file(this); return false" data-path='+ path +'><button class="close closeTab" type="button" >×</button>'+filename+'</a></li>');  
-  	// 			// } 
-			// });
+   			}  
         	
         	close_tab(); 
         }); 
@@ -238,17 +207,31 @@ function tabs_file(data){
 }
 
 function close_tab(){
-	$(".closeTab").click(function () { 
-		//there are multiple elements which has .closeTab icon so close the tab whose close icon is clicked
+	$(".closeTab").click(function () {  
 		var tabContentId = $(this).parent().attr("href");
-		$(this).parent().parent().remove(); //remove li of tab
-		//$('#myTab a:last').tab('show'); // Select first tab
-		$(tabContentId).remove(); //remove respective tab content 
+		$(this).parent().parent().remove();  
+		$(tabContentId).remove();  
     });
 }
 
 $("#import").click(function(){
     $('#uploadFile').trigger('click');
 });
+
+$("#export_project").click(function(){
+if(confirm("Export Project?") == true)
+   $.ajax({
+            dataType: 'json',
+            type:'post',
+            url: 'export_proj',
+            data:{
+				project_path: project_path 
+			},
+            _token: '{{ csrf_token() }}'
+        }).done(function(result){ 
+        	window.location = result.file_rar;
+        }); 
+});
+
 
 

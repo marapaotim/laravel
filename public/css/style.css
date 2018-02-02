@@ -509,9 +509,38 @@ footer .navbar{
   color: #fff;
   font-weight: bold;
 }
-.blog-img-height img:hover{
+.blog-img-height img:hover, 
+.blog-sidebar img:hover{
  cursor: pointer;
   filter:grayscale(100%);
+}
+.blog-sidebar h4{
+  color:#fff;
+  font-weight: bold;
+  font-size: 25px;
+}
+.blog-sidebar ul li a{
+  color:#fff; 
+}
+.blog-sidebar hr{
+    border-top: 2px solid #fff;
+    margin-top: 14px;
+    margin-bottom: 20px;
+}
+.blog-sidebar ul li{
+  margin-top: 10px;
+}
+.blog-sidebar{
+  background:rgba(0,0,0,0.5);
+}
+.blog-sidebar img{
+  margin:auto;
+} 
+@media screen and (max-width: 768px) {
+  .blog-sidebar{
+    padding-bottom:2px;
+    padding-top:2px;
+  }
 }
 /*-------------------------------
           Contact Info
@@ -524,6 +553,7 @@ footer .navbar{
 }
 .contact-info p{  
   padding-left: 7px;
+  color: #000;
 }
 .contact-form label, .contact-form input[type=text]{
   color: #000;
