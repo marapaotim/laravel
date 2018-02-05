@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="page-title">
 				<h3>Contact  Page</h3>
-			</div>
+			</div>  
 			<div class="col-md-8 contact-form">
 				<form id="form-contact-us"  method="POST">
 					<div class="form-group">
@@ -36,11 +36,13 @@
 				</form> 
 			</div> 
 			<div class="col-md-4 contact-info">
+
+				<iframe width="100%" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJi8MeVwPKlzMRH8FpEHXV0Wk&amp;key=AIzaSyBbsqAET18rKy7xZVzos1LrI1mdypXMOEE" allowfullscreen=""></iframe>
+				<br>
+				  <h3>Address:</h3><p>1223 sadas asdsd <br> 121212121212 asdasd asdasd sad</p>
 				  <h3>Contact Number(s):</h3> <p>121212121212 <br> 121212121212</p> 
 				  <h3>Email Address:</h3><p>121212121212@sadasda.com <br> 121212121212@adasdsa.com</p> 
-				  <h3>Address:</h3><p>1223 sadas asdsd <br> 121212121212 asdasd asdasd sad</p>
-				
-			</div> 
+			</div>
 		</div>
 	</div>
 </div>
