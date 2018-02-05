@@ -4,14 +4,16 @@ $.ajaxSetup({
     }
 });
 $(document).ready(function(e) { 
-	$('.contact-form img').hide();
+	$('.contact-form i').hide();
     $('div.error-captcha').hide();
      
 	$("#form-contact-us").submit(function(e) {
         e.preventDefault(); 
         
         $('#submit-contact').attr("disabled", "disabled");
-        $('.contact-form img').show(); 
+        $('.contact-form i').show(); 
+
+        console.log(grecaptcha.getResponse());
         $.ajax({
             dataType: 'json',
             type:'post',
@@ -50,7 +52,7 @@ $(document).ready(function(e) {
 
             }
 
-            $('.contact-form img').hide(); 
+            $('.contact-form i').hide(); 
 
             $("#submit-contact").removeAttr("disabled");
         }); 

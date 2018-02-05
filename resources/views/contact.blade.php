@@ -5,7 +5,7 @@
 	</div>
 </div>
 <div class="maxsize">
-	<div class="container">
+	<div class="container"> 
 		<div class="row">
 			<div class="page-title">
 				<h3>Contact  Page</h3>
@@ -31,7 +31,7 @@
 					<div class="g-recaptcha" data-sitekey="6LdXVEQUAAAAAE5QBTFbNxHyl4KtWqTqrRrvxgDD"></div>
 					<div class="text-danger error-captcha">Please verify that you are not a robot.</div>
 					<br>
-					<button type="submit" class="btn btn-danger" id="submit-contact">Submit <img src="{{asset('images/loading.gif')}}"> </button> 
+					<button type="submit" class="btn btn-danger" id="submit-contact">Submit <i class="fa fa-spin fa-spinner"></i><!-- <img src="{{asset('images/loading.gif')}}"> --> </button> 
 					<div class="display-success"></div>
 				</form> 
 			</div> 

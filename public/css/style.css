@@ -557,4 +557,11 @@ footer .navbar{
     padding-bottom:2px;
     padding-top:2px;
   } 
+  /*#searchText{
+    visibility: hidden;
+  } 
+  span.input-group-addon:hover ~ #searchText,
+  #searchText:focus{
+     visibility: visible;
+  }*/
 }

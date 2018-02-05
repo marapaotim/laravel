@@ -79,7 +79,8 @@
 
 <link rel="stylesheet" type="text/css" href="/tvteditor/src/css/jquery.enhsplitter.css"> 
 <link type="text/css" rel="stylesheet" href="/tvteditor/src/css/tvteditor.css" /> -->
-
+ 
+</script>
 </head>
 <body> 
 <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom">
@@ -99,12 +100,12 @@
       <div class="col-md-3 sub-container">
         <div class="row">
           <div class="input-group stylish-input-group search-header">
-              <input type="text" class="form-control"  placeholder="Search" >
               <span class="input-group-addon">
                   <button type="submit" id="btnSearch">
                       <span class="glyphicon glyphicon-search"></span>
                   </button>  
               </span>
+              <input type="text" id="searchText" class="form-control"  placeholder="Search" >
           </div>
         </div>
       </div>
