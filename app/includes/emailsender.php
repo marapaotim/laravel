@@ -17,6 +17,14 @@ class emailsender{
 
 	}
 
+	public static function captcha_response($captcha = ''){
+
+		$secret_key = '6LdXVEQUAAAAALDu5WlZhy0_D5WYcMakg8gE8KoG';
+
+		return json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret_key."&response=".$captcha."&remoteip=".$_SERVER["REMOTE_ADDR"]), true);
+
+	}
+
 	static function user_message($user_info = array()){
 
 		$htmlBody = '';

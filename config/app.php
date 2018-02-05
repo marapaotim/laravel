@@ -177,7 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Yajra\Datatables\datatablesServiceProvider::class,
-        ZanySoft\Zip\ZipServiceProvider::class
+        ZanySoft\Zip\ZipServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
     ],
 
@@ -227,8 +228,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-         'Datatables' => yajra\Datatables\Datatables::class,
-         'Zip' => ZanySoft\Zip\ZipFacade::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
+        'Zip' => ZanySoft\Zip\ZipFacade::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
 
     ],
 

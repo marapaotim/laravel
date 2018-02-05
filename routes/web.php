@@ -108,3 +108,5 @@ Route::get('/xml', 'ProjectController@xml_data');
 			Contact Us
 ---------------------------------*/
 Route::post('send_mail', 'ContactController@send_email'); 
+
+Route::get('/recaptcha', 'ContactController@recaptcha_response');

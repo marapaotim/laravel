@@ -5,13 +5,13 @@ $.ajaxSetup({
 });
 $(document).ready(function(e) { 
 	$('.contact-form img').hide();
-
-	 $("#form-contact-us").submit(function(e) {
+    $('div.error-captcha').hide();
+     
+	$("#form-contact-us").submit(function(e) {
         e.preventDefault(); 
         
         $('#submit-contact').attr("disabled", "disabled");
-        $('.contact-form img').show();
-
+        $('.contact-form img').show(); 
         $.ajax({
             dataType: 'json',
             type:'post',
@@ -21,16 +21,38 @@ $(document).ready(function(e) {
 				email: $('#email').val(),
 				subject: $('#subject').val(),
 				message: $('#message').val(),
+                captcha: grecaptcha.getResponse(),
 			},
             _token: '{{ csrf_token() }}'
         }).done(function(result){ 
-        	 $('#form-contact-us')[0].reset();
-        	$('.contact-form img').hide(); 
-        	$("#submit-contact").removeAttr("disabled");
-            var message = '<div class="alert alert-success fade in alert-dismissable" style="margin-top: 20px;">';
-            message+='<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>';
-            message+='<strong>Successfully Send!</strong></div>';
-        	$('.display-success').html(message); 
+            
+            if(result.status != 'robot') {
+
+            	$('#form-contact-us')[0].reset();
+
+                var message = '<div class="alert alert-success fade in alert-dismissable" style="margin-top: 20px;">';
+
+                message+='<a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>';
+
+                message+='<strong>Successfully Send!</strong></div>';
+
+                $('.display-success').html(message);
+
+                grecaptcha.reset();
+
+                $('div.error-captcha').hide();
+            }
+            else{
+
+                $('div.error-captcha').show();
+
+                $('.display-success').html('');
+
+            }
+
+            $('.contact-form img').hide(); 
+
+            $("#submit-contact").removeAttr("disabled");
         }); 
     }); 
 }); 

@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <!-- BxSlider --> 
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 
 <!-- <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
 

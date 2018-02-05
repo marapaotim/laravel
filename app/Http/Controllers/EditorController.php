@@ -12,6 +12,10 @@ use Zip;
 class EditorController extends Controller
 {   
 	private $editor; 
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
 	public function index()
     { 
         return view('editor');
